@@ -91,8 +91,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         radius: 64,
                         backgroundImage: _image != null
                             ? MemoryImage(_image!)
-                            : const AssetImage('assets/default.png')
-                                as ImageProvider),
+                            : const AssetImage(defaultImage) as ImageProvider),
                     Positioned(
                       bottom: -10,
                       left: 80,

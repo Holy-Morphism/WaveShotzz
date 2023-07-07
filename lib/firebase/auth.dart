@@ -80,4 +80,8 @@ class AuthMethods {
       return true;
     }
   }
+
+  static void signOut() async {
+    await auth.signOut();
+  }
 }

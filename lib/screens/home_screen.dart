@@ -31,12 +31,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+
     return Scaffold(
       bottomNavigationBar: BottomNavBar(
         onDestinationSelected: changePage,
         index: currentPage,
       ),
-      body: _pages[currentPage],
+      body: SizedBox(
+          height: mediaQuery.size.height -
+              mediaQuery.padding.bottom -
+              mediaQuery.padding.top,
+          child: _pages[currentPage]),
     );
   }
 }

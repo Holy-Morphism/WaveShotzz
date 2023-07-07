@@ -1,5 +1,3 @@
-import 'package:kylipp/models/post.dart';
-
 class User {
   final String username;
   final String email;
