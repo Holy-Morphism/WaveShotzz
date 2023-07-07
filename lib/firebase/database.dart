@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:kylipp/firebase/auth.dart';
+import 'package:kylipp/models/post.dart';
 
 import '../models/user.dart';
 
@@ -36,6 +37,15 @@ class Database {
           following: [],
           profilePictureUrl: '',
           posts: []);
+    }
+  }
+
+  static void addPost({required Post post}) {
+    final user = AuthMethods.auth.currentUser;
+    if (user != null) {
+      db.collection('users').doc(user.uid).update({
+        'posts': FieldValue.arrayUnion([post.toJson()])
+      });
     }
   }
 }

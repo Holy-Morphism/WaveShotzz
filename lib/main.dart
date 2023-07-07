@@ -1,8 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kylipp/providers/current_user.dart';
+import 'package:kylipp/screens/explore_screen.dart';
 import 'package:kylipp/screens/home_screen.dart';
 import 'package:kylipp/screens/login_screen.dart';
+import 'package:kylipp/screens/notifications_page.dart';
+import 'package:kylipp/screens/post_screen.dart';
+import 'package:kylipp/screens/profile_screen.dart';
 import 'package:kylipp/screens/signup_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -39,12 +43,17 @@ class MyApp extends StatelessWidget {
               title: 'KYLIPP',
               theme: ThemeData.dark(useMaterial3: true),
               home: AuthMethods.userLoggedIn()
-                  ? const HomeScreen()
+                  ? const ProfileScreen()
                   : const LoginScreen(),
               routes: {
                 LoginScreen.routeName: (context) => const LoginScreen(),
                 SignupScreen.routeName: (context) => const SignupScreen(),
                 HomeScreen.routeName: (context) => const HomeScreen(),
+                ExploreScreen.routeName: (context) => const ExploreScreen(),
+                NotificationsScreen.routeName: (context) =>
+                    const NotificationsScreen(),
+                ProfileScreen.routeName: (context) => const ProfileScreen(),
+                PostScreen.routeName: (context) => PostScreen(),
               },
             ),
           );

@@ -42,6 +42,14 @@ dependencies:
   image_picker: ^1.0.0
   font_awesome_flutter: ^10.5.0
   provider: ^6.0.5
+  flutter_native_splash: ^2.3.1
+
+flutter_native_splash:
+  android: true
+  web: true
+
+  color: '#000000'
+  image: 'assets/loading.gif'
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +77,7 @@ flutter:
   assets:
     - assets/KYLIPP.png
     - assets/default.png
+    - assets/loading.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
