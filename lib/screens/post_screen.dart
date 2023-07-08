@@ -1,6 +1,8 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:kylipp/firebase/auth.dart';
+import 'package:kylipp/firebase/profile_post.dart';
 import 'package:kylipp/widgets/bottom_navbar.dart';
 
 import '../widgets/input.dart';
@@ -8,15 +10,23 @@ import '../widgets/input.dart';
 class PostScreen extends StatelessWidget {
   PostScreen({super.key});
   static const routeName = '/post-screen';
-  final TextEditingController _controller = TextEditingController();
+  final TextEditingController _caption = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height -
         MediaQuery.of(context).padding.top -
         kBottomNavigationBarHeight;
-
     final Uint8List image =
         ModalRoute.of(context)!.settings.arguments as Uint8List;
+    void _postImage() {
+      ProfilePost.postPicture(
+          post: image,
+          caption: _caption.text,
+          date: DateTime.now(),
+          uid: AuthMethods.uid);
+      Navigator.of(context).pop();
+    }
+
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: const BottomNavBar(),
@@ -47,12 +57,13 @@ class PostScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         TextFieldInput(
-                          textEditingController: _controller,
+                          textEditingController: _caption,
                           hintText: 'Enter a caption!',
                           label: 'Caption',
                           textInputType: TextInputType.text,
                         ),
-                        TextButton(onPressed: () {}, child: const Text('Post'))
+                        TextButton(
+                            onPressed: _postImage, child: const Text('Post'))
                       ],
                     ),
                   ))

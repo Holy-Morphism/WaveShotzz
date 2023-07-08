@@ -26,7 +26,7 @@ class Storage {
     required String uid,
     required DateTime dateTime,
   }) async {
-    final Reference path = storage.ref('$uid$post${dateTime.toString()}');
+    final Reference path = storage.ref('$uid$postPath${dateTime.toString()}');
     try {
       await path.putData(post);
     } catch (e) {

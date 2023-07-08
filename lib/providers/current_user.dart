@@ -10,15 +10,5 @@ class CurrentUser with ChangeNotifier {
     notifyListeners();
   }
 
-  User get user => _user == null
-      ? const User(
-          username: '',
-          email: '',
-          password: '',
-          bio: '',
-          followers: [],
-          following: [],
-          profilePictureUrl: '',
-          posts: [])
-      : _user!;
+  User? get user => _user;
 }

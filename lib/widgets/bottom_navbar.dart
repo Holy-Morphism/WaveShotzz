@@ -19,6 +19,41 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final nav = Navigator.of(context);
+    void navigate(Uint8List? image) {
+      Navigator.pop(context);
+      if (image != null) {
+        Navigator.of(context).pushNamed(PostScreen.routeName, arguments: image);
+      }
+    }
+
+    void showImageSourceBottomSheet(BuildContext context) {
+      showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return Wrap(
+            children: [
+              ListTile(
+                leading: const Icon(Icons.camera),
+                title: const Text('Camera'),
+                onTap: () async {
+                  final image = await pickImage(ImageSource.camera);
+                  navigate(image);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.photo_library),
+                title: const Text('Gallery'),
+                onTap: () async {
+                  final image = await pickImage(ImageSource.gallery);
+                  navigate(image);
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+
     return BottomAppBar(
         child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -30,7 +65,7 @@ class BottomNavBar extends StatelessWidget {
             onPressed: () => nav.pushReplacementNamed(ExploreScreen.routeName),
             icon: const Icon(Icons.search)),
         IconButton(
-            onPressed: () => _showImageSourceBottomSheet(context),
+            onPressed: () => showImageSourceBottomSheet(context),
             icon: const Icon(Icons.add_box_outlined)),
         IconButton(
             onPressed: () =>
@@ -41,39 +76,5 @@ class BottomNavBar extends StatelessWidget {
             icon: const FaIcon(FontAwesomeIcons.globe)),
       ],
     ));
-  }
-
-  void _showImageSourceBottomSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return Wrap(
-          children: [
-            ListTile(
-              leading: const Icon(Icons.camera),
-              title: const Text('Camera'),
-              onTap: () async {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed(PostScreen.routeName,
-                    arguments: await _open(ImageSource.camera));
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.photo_library),
-              title: const Text('Gallery'),
-              onTap: () async {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed(PostScreen.routeName,
-                    arguments: await _open(ImageSource.gallery));
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  Future<Uint8List> _open(ImageSource source) async {
-    return await pickImage(source);
   }
 }

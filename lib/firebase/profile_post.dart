@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:kylipp/firebase/database.dart';
@@ -11,6 +12,7 @@ class ProfilePost {
       required DateTime date,
       required String uid}) async {
     String url = await Storage.uploadPost(post: post, uid: uid, dateTime: date);
+    log('post : $url');
     Database.addPost(
         post: Post(
             photoUrl: url,

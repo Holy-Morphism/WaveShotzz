@@ -84,4 +84,8 @@ class AuthMethods {
   static void signOut() async {
     await auth.signOut();
   }
+
+  static String get uid {
+    return auth.currentUser!.uid;
+  }
 }
