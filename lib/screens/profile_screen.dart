@@ -33,7 +33,7 @@ class ProfileScreen extends StatelessWidget {
             ? SizedBox.expand(
                 child: Image.asset(
                   gflLoading,
-                  fit: BoxFit.fitHeight,
+                  fit: BoxFit.cover,
                 ),
               )
             : SizedBox(

@@ -8,10 +8,15 @@ class ExploreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      bottomNavigationBar: BottomNavBar(),
-      body: Center(
-        child: Text('Explore Page'),
+    return SafeArea(
+      child: Scaffold(
+        bottomNavigationBar: const BottomNavBar(),
+        body: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4, mainAxisSpacing: 10, crossAxisSpacing: 10),
+            itemBuilder: (context, i) {
+              return;
+            }),
       ),
     );
   }

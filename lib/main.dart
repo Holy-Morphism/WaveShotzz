@@ -1,15 +1,18 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kylipp/providers/current_user.dart';
+import 'package:kylipp/screens/chat_screen.dart';
 import 'package:kylipp/screens/explore_screen.dart';
 import 'package:kylipp/screens/home_screen.dart';
 import 'package:kylipp/screens/login_screen.dart';
 import 'package:kylipp/screens/notifications_page.dart';
+import 'package:kylipp/screens/post_detail.dart';
 import 'package:kylipp/screens/post_screen.dart';
 import 'package:kylipp/screens/profile_screen.dart';
 import 'package:kylipp/screens/signup_screen.dart';
 import 'package:provider/provider.dart';
 
+import 'constants/constants.dart';
 import 'firebase/auth.dart';
 import 'firebase/firebase_options.dart';
 
@@ -43,7 +46,7 @@ class MyApp extends StatelessWidget {
               title: 'KYLIPP',
               theme: ThemeData.dark(useMaterial3: true),
               home: AuthMethods.userLoggedIn()
-                  ? const ProfileScreen()
+                  ? const HomeScreen()
                   : const LoginScreen(),
               routes: {
                 LoginScreen.routeName: (context) => const LoginScreen(),
@@ -54,13 +57,21 @@ class MyApp extends StatelessWidget {
                     const NotificationsScreen(),
                 ProfileScreen.routeName: (context) => const ProfileScreen(),
                 PostScreen.routeName: (context) => PostScreen(),
+                ChatScreen.routeName: (context) => const ChatScreen(),
+                PostDetails.routeName: (context) => const PostDetails()
               },
             ),
           );
         }
 
         // Otherwise, show something whilst waiting for initialization to complete
-        return materialApp(child: const CircularProgressIndicator());
+        return materialApp(
+            child: SizedBox.expand(
+          child: Image.asset(
+            gflLoading,
+            fit: BoxFit.cover,
+          ),
+        ));
       },
     );
   }

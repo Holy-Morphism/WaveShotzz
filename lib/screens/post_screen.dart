@@ -18,7 +18,7 @@ class PostScreen extends StatelessWidget {
         kBottomNavigationBarHeight;
     final Uint8List image =
         ModalRoute.of(context)!.settings.arguments as Uint8List;
-    void _postImage() {
+    void postImage() {
       ProfilePost.postPicture(
           post: image,
           caption: _caption.text,
@@ -63,7 +63,7 @@ class PostScreen extends StatelessWidget {
                           textInputType: TextInputType.text,
                         ),
                         TextButton(
-                            onPressed: _postImage, child: const Text('Post'))
+                            onPressed: postImage, child: const Text('Post'))
                       ],
                     ),
                   ))

@@ -6,13 +6,15 @@ class ProfileImage extends StatelessWidget {
   final String image;
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      radius: 50,
-      backgroundImage: const AssetImage(loadingImage),
-      foregroundImage: FadeInImage(
-              placeholder: const AssetImage(loadingImage),
-              image: NetworkImage(image))
-          .image,
+    return GestureDetector(
+      child: CircleAvatar(
+        radius: 50,
+        backgroundImage: const AssetImage(loadingImage),
+        foregroundImage: FadeInImage(
+                placeholder: const AssetImage(loadingImage),
+                image: NetworkImage(image))
+            .image,
+      ),
     );
   }
 }
