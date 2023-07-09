@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:kylipp/firebase/auth.dart';
+import 'package:kylipp/models/explore_post.dart';
 import 'package:kylipp/models/post.dart';
 
 import '../models/user.dart';
@@ -19,7 +20,7 @@ class Database {
     }
   }
 
-  static Future<User> currentUser() async {
+  static Future<User?> currentUser() async {
     if (AuthMethods.auth.currentUser != null) {
       DocumentSnapshot<Map<String, dynamic>> snapshot = await db
           .collection('users')
@@ -27,17 +28,8 @@ class Database {
           .get();
       Map<String, dynamic> userData = snapshot.data()!;
       return User.fromJson(userData);
-    } else {
-      return const User(
-          username: 'username',
-          email: 'email',
-          password: 'password',
-          bio: 'bio',
-          followers: [],
-          following: [],
-          profilePictureUrl: '',
-          posts: []);
     }
+    return null;
   }
 
   static void addPost({required Post post}) {
@@ -47,5 +39,35 @@ class Database {
         'posts': FieldValue.arrayUnion([post.toJson()])
       });
     }
+  }
+
+  static Future<List<ExplorePost>> getUsers() async {
+    final String currentUserUid = AuthMethods.uid;
+    List<ExplorePost> posts = [];
+    QuerySnapshot snapshot =
+        await FirebaseFirestore.instance.collection('users').get();
+
+    for (QueryDocumentSnapshot document in snapshot.docs) {
+      if (document.id != currentUserUid) {
+        DocumentSnapshot<Map<String, dynamic>> userSnapshot =
+            await FirebaseFirestore.instance
+                .collection('users')
+                .doc(document.id)
+                .get();
+        Map<String, dynamic> userData = userSnapshot.data()!;
+        List<dynamic> postList = userData['posts'];
+        for (Map<String, dynamic> post in postList) {
+          posts.add(
+            ExplorePost(
+              username: userData['username'],
+              uid: document.id,
+              post: Post.fromJson(post),
+            ),
+          );
+        }
+      }
+    }
+
+    return posts;
   }
 }

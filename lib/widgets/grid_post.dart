@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kylipp/constants/constants.dart';
-import 'package:kylipp/screens/post_detail.dart';
+import 'package:kylipp/screens/profile_post_detail.dart';
 
 class GridPost extends StatelessWidget {
   const GridPost({super.key, required this.userMap});
@@ -10,7 +10,7 @@ class GridPost extends StatelessWidget {
     final String image = userMap['photoUrl'];
     return GestureDetector(
       onTap: () => Navigator.of(context)
-          .pushNamed(PostDetails.routeName, arguments: userMap),
+          .pushNamed(ProfilePostDetails.routeName, arguments: userMap),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         clipBehavior: Clip.hardEdge,

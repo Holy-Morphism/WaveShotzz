@@ -1,12 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kylipp/providers/current_user.dart';
+import 'package:kylipp/providers/explore_post_provider.dart';
 import 'package:kylipp/screens/chat_screen.dart';
+import 'package:kylipp/screens/explore_post_detail.dart';
 import 'package:kylipp/screens/explore_screen.dart';
 import 'package:kylipp/screens/home_screen.dart';
 import 'package:kylipp/screens/login_screen.dart';
 import 'package:kylipp/screens/notifications_page.dart';
-import 'package:kylipp/screens/post_detail.dart';
+import 'package:kylipp/screens/profile_post_detail.dart';
 import 'package:kylipp/screens/post_screen.dart';
 import 'package:kylipp/screens/profile_screen.dart';
 import 'package:kylipp/screens/signup_screen.dart';
@@ -40,7 +42,10 @@ class MyApp extends StatelessWidget {
         // Once complete, show your application
         if (snapshot.connectionState == ConnectionState.done) {
           return MultiProvider(
-            providers: [ChangeNotifierProvider(create: (_) => CurrentUser())],
+            providers: [
+              ChangeNotifierProvider(create: (_) => CurrentUserProvider()),
+              ChangeNotifierProvider(create: (_) => ExplorePostProvider()),
+            ],
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'KYLIPP',
@@ -58,7 +63,10 @@ class MyApp extends StatelessWidget {
                 ProfileScreen.routeName: (context) => const ProfileScreen(),
                 PostScreen.routeName: (context) => PostScreen(),
                 ChatScreen.routeName: (context) => const ChatScreen(),
-                PostDetails.routeName: (context) => const PostDetails()
+                ProfilePostDetails.routeName: (context) =>
+                    const ProfilePostDetails(),
+                ExplorePostDetails.routeName: (context) =>
+                    const ExplorePostDetails()
               },
             ),
           );
@@ -68,7 +76,7 @@ class MyApp extends StatelessWidget {
         return materialApp(
             child: SizedBox.expand(
           child: Image.asset(
-            gflLoading,
+            gfLoading,
             fit: BoxFit.cover,
           ),
         ));

@@ -3,7 +3,7 @@ import 'package:kylipp/firebase/database.dart';
 
 import '../models/user.dart';
 
-class CurrentUser with ChangeNotifier {
+class CurrentUserProvider with ChangeNotifier {
   User? _user;
   void refreshUser() async {
     _user = await Database.currentUser();

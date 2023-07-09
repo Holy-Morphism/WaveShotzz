@@ -15,7 +15,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currentUser = Provider.of<CurrentUser>(context);
+    final currentUser = Provider.of<CurrentUserProvider>(context);
     currentUser.refreshUser();
     final user = currentUser.user;
     final double height =
@@ -32,7 +32,7 @@ class ProfileScreen extends StatelessWidget {
         body: user == null
             ? SizedBox.expand(
                 child: Image.asset(
-                  gflLoading,
+                  laptopLoading,
                   fit: BoxFit.cover,
                 ),
               )
@@ -79,9 +79,17 @@ class ProfileScreen extends StatelessWidget {
                                     c: CrossAxisAlignment.start,
                                   ),
                                   Expanded(
-                                    child: TextButton(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                          border:
+                                              Border.all(color: Colors.white)),
+                                      child: TextButton(
                                         onPressed: signOut,
-                                        child: const Text('Sign Out')),
+                                        child: const Text('Sign Out'),
+                                      ),
+                                    ),
                                   )
                                 ],
                               ),
