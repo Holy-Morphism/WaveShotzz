@@ -23,7 +23,7 @@ class ExploreScreen extends StatelessWidget {
         body: posts == null
             ? SizedBox.expand(
                 child: Image.asset(
-                  gfLoading,
+                  laptopLoading,
                   fit: BoxFit.cover,
                 ),
               )

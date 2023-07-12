@@ -41,6 +41,34 @@ class Database {
     }
   }
 
+  static void addFollowing(String uid) {
+    final user = AuthMethods.auth.currentUser;
+    if (user != null) {
+      db.collection('users').doc(user.uid).update({
+        'following': FieldValue.arrayUnion([uid])
+      });
+      db.collection('users').doc(uid).update({
+        'followers': FieldValue.arrayUnion([uid])
+      });
+    }
+  }
+
+  static void removeFollowing(String uid) async {
+    final user = AuthMethods.auth.currentUser;
+    if (user != null) {
+      //Remove user from current users following
+      final snapshot = await db.collection('users').doc(user.uid).get();
+      final List<dynamic> following = snapshot['following'];
+      following.remove(uid);
+      db.collection('users').doc(user.uid).update({'following': following});
+      //Remove curretn user from user followers
+      final snapshot1 = await db.collection('users').doc(uid).get();
+      final List<dynamic> followers = snapshot1['followers'];
+      followers.remove(user.uid);
+      await db.collection('users').doc(uid).update({'following': followers});
+    }
+  }
+
   static Future<List<ExplorePost>> getUsers() async {
     final String currentUserUid = AuthMethods.uid;
     List<ExplorePost> posts = [];
@@ -69,5 +97,36 @@ class Database {
     }
 
     return posts;
+  }
+
+  static void likePhoto({
+    required String uid,
+    required DateTime dateTime,
+  }) async {
+    final snapshot = await db.collection('users').doc(uid).get();
+    Map<String, dynamic> userData = snapshot.data()!;
+    List<dynamic> postList = userData['posts'];
+    final index = postList
+        .indexWhere((element) => element['date'] == dateTime.toString());
+    Map<String, dynamic> post = postList[index];
+    post['likes'] = post['likes'] + 1;
+
+    postList[index] = post;
+    await db.collection('users').doc(uid).update({'posts': postList});
+  }
+
+  static void dislikePhoto({
+    required String uid,
+    required DateTime dateTime,
+  }) async {
+    final snapshot = await db.collection('users').doc(uid).get();
+    Map<String, dynamic> userData = snapshot.data()!;
+    List<dynamic> postList = userData['posts'];
+    final index = postList
+        .indexWhere((element) => element['date'] == dateTime.toString());
+    Map<String, dynamic> post = postList[index];
+    post['dislikes'] = post['dislikes'] - 1;
+    postList[index] = post;
+    await db.collection('users').doc(uid).update({'posts': postList});
   }
 }
