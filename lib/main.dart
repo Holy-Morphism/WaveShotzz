@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kylipp/providers/current_user.dart';
 import 'package:kylipp/providers/explore_post_provider.dart';
+import 'package:kylipp/providers/home_post_provider.dart';
 import 'package:kylipp/screens/chat_screen.dart';
 import 'package:kylipp/screens/explore_post_detail.dart';
 import 'package:kylipp/screens/explore_screen.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
             providers: [
               ChangeNotifierProvider(create: (_) => CurrentUserProvider()),
               ChangeNotifierProvider(create: (_) => ExplorePostProvider()),
+              ChangeNotifierProvider(create: (_) => HomePostProvider())
             ],
             child: MaterialApp(
               debugShowCheckedModeBanner: false,

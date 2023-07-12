@@ -47,8 +47,4 @@ class CurrentUserProvider with ChangeNotifier {
   }
 
   User? get user => _user;
-
-  void getFollowersPost() {
-    if (_user != null) {}
-  }
 }

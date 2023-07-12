@@ -129,4 +129,31 @@ class Database {
     postList[index] = post;
     await db.collection('users').doc(uid).update({'posts': postList});
   }
+
+  static Future<List<ExplorePost>>? getPostsOfFollowing() async {
+    final user = AuthMethods.auth.currentUser;
+    if (user != null) {
+      final ds = await db.collection('users').doc(AuthMethods.uid).get();
+      final data = ds.data()!;
+      List<dynamic> following = data['following'];
+      List<ExplorePost> posts = [];
+      for (String f in following) {
+        final snapshot = await db.collection('users').doc(f).get();
+        Map<String, dynamic> userData = snapshot.data()!;
+        List<dynamic> postList = userData['posts'];
+        for (Map<String, dynamic> post in postList) {
+          posts.add(
+            ExplorePost(
+              username: userData['username'],
+              uid: f,
+              post: Post.fromJson(post),
+            ),
+          );
+        }
+      }
+      return posts;
+    } else {
+      return [];
+    }
+  }
 }
