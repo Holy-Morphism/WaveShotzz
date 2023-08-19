@@ -1,4 +1,4 @@
-package com.example.kylipp
+package untameddevelopment.kylipp.com
 
 import io.flutter.embedding.android.FlutterActivity
 

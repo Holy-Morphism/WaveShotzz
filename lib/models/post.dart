@@ -2,22 +2,22 @@ class Post {
   final String photoUrl;
   final String caption;
   final DateTime date;
-  final int likes, dislikes;
+  final List likes;
+  final bool isVideo;
   const Post({
     required this.photoUrl,
     required this.caption,
     required this.date,
-    required this.dislikes,
     required this.likes,
+    this.isVideo = false,
   });
   factory Post.fromJson(Map<String, dynamic> json) {
     return Post(
-      photoUrl: json['photoUrl'] as String,
-      caption: json['caption'] as String,
-      date: DateTime.parse(json['date'] as String),
-      likes: json['likes'] as int,
-      dislikes: json['dislikes'] as int,
-    );
+        photoUrl: json['photoUrl'] as String,
+        caption: json['caption'] as String,
+        date: DateTime.parse(json['date'] as String),
+        likes: json['likes'],
+        isVideo: json['isVideo']);
   }
 
   Map<String, dynamic> toJson() {
@@ -26,7 +26,7 @@ class Post {
       'caption': caption,
       'date': date.toString(),
       'likes': likes,
-      'dislikes': dislikes,
+      'isVideo': isVideo,
     };
   }
 }

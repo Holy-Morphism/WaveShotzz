@@ -52,9 +52,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Container(
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
           padding: const EdgeInsets.symmetric(horizontal: 32),
           width: double.infinity,
           child: Column(
@@ -64,7 +64,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 flex: 2,
                 child: Container(),
               ),
-              Image.asset(logo),
+              Container(
+                  margin: const EdgeInsets.symmetric(vertical: 30),
+                  child: Image.asset(logo)),
               TextFieldInput(
                 textEditingController: _email,
                 textInputType: TextInputType.emailAddress,

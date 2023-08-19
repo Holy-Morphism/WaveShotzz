@@ -51,13 +51,14 @@ class AuthMethods {
       }
       log(url);
       model.User user = model.User(
+          uid: credential.user!.uid,
           email: email,
           password: password,
           bio: bio,
           username: username,
           followers: [],
           following: [],
-          profilePictureUrl: url,
+          photoUrl: url,
           posts: []);
       Database.addUser(uid: credential.user!.uid, user: user.toJson());
     } on FirebaseAuthException catch (e) {

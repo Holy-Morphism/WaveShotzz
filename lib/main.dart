@@ -1,21 +1,21 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:kylipp/providers/current_user.dart';
-import 'package:kylipp/providers/explore_post_provider.dart';
-import 'package:kylipp/providers/home_post_provider.dart';
+
+import 'package:kylipp/providers/posts_of_following_provider.dart';
+import 'package:kylipp/providers/user_provider.dart';
+import 'package:kylipp/providers/users_provider.dart';
 import 'package:kylipp/screens/chat_screen.dart';
+
+import 'package:kylipp/screens/messages_screen.dart';
 import 'package:kylipp/screens/explore_post_detail.dart';
-import 'package:kylipp/screens/explore_screen.dart';
 import 'package:kylipp/screens/home_screen.dart';
 import 'package:kylipp/screens/login_screen.dart';
-import 'package:kylipp/screens/notifications_page.dart';
+import 'package:kylipp/screens/other_profile_screen.dart';
 import 'package:kylipp/screens/profile_post_detail.dart';
 import 'package:kylipp/screens/post_screen.dart';
-import 'package:kylipp/screens/profile_screen.dart';
 import 'package:kylipp/screens/signup_screen.dart';
 import 'package:provider/provider.dart';
 
-import 'constants/constants.dart';
 import 'firebase/auth.dart';
 import 'firebase/firebase_options.dart';
 
@@ -44,11 +44,11 @@ class MyApp extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           return MultiProvider(
             providers: [
-              ChangeNotifierProvider(create: (_) => CurrentUserProvider()),
-              ChangeNotifierProvider(create: (_) => ExplorePostProvider()),
-              ChangeNotifierProvider(create: (_) => HomePostProvider())
+              ChangeNotifierProvider(create: (_) => UserProvider()),
+              ChangeNotifierProvider(create: (_) => PostOfFollowingProvider()),
+              ChangeNotifierProvider(create: (_) => UsersProvider()),
             ],
-            child: MaterialApp(
+            builder: (context, child) => MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'KYLIPP',
               theme: ThemeData.dark(useMaterial3: true),
@@ -59,16 +59,14 @@ class MyApp extends StatelessWidget {
                 LoginScreen.routeName: (context) => const LoginScreen(),
                 SignupScreen.routeName: (context) => const SignupScreen(),
                 HomeScreen.routeName: (context) => const HomeScreen(),
-                ExploreScreen.routeName: (context) => const ExploreScreen(),
-                NotificationsScreen.routeName: (context) =>
-                    const NotificationsScreen(),
-                ProfileScreen.routeName: (context) => const ProfileScreen(),
                 PostScreen.routeName: (context) => PostScreen(),
-                ChatScreen.routeName: (context) => const ChatScreen(),
+                MessagesScreen.routeName: (context) => const MessagesScreen(),
                 ProfilePostDetails.routeName: (context) =>
                     const ProfilePostDetails(),
-                ExplorePostDetails.routeName: (context) =>
-                    const ExplorePostDetails()
+                PostDetails.routeName: (context) => const PostDetails(),
+                OtherProfileScreen.routeName: (context) =>
+                    const OtherProfileScreen(),
+                ChatScreen.routeName: (context) => const ChatScreen()
               },
             ),
           );
@@ -76,11 +74,8 @@ class MyApp extends StatelessWidget {
 
         // Otherwise, show something whilst waiting for initialization to complete
         return materialApp(
-            child: SizedBox.expand(
-          child: Image.asset(
-            gfLoading,
-            fit: BoxFit.cover,
-          ),
+            child: const CircularProgressIndicator(
+          color: Colors.redAccent,
         ));
       },
     );

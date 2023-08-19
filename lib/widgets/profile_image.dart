@@ -2,18 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:kylipp/constants/constants.dart';
 
 class ProfileImage extends StatelessWidget {
-  const ProfileImage({super.key, required this.image});
-  final String image;
+  const ProfileImage({super.key, required this.image, this.size = 50});
+  final String? image;
+  final double size;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       child: CircleAvatar(
-        radius: 50,
+        radius: size,
         backgroundImage: const AssetImage(loadingImage),
-        foregroundImage: FadeInImage(
-                placeholder: const AssetImage(loadingImage),
-                image: NetworkImage(image))
-            .image,
+        foregroundImage: image != null
+            ? FadeInImage(
+                    placeholder: const AssetImage(loadingImage),
+                    image: NetworkImage(image!))
+                .image
+            : const AssetImage(defaultImage),
       ),
     );
   }

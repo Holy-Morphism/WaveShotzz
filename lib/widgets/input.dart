@@ -17,14 +17,6 @@ class TextFieldInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: textEditingController,
-      // decoration: InputDecoration(
-      //   hintText: hintText,
-      //   border: inputBorder,
-      //   focusedBorder: inputBorder,
-      //   enabledBorder: inputBorder,
-      //   filled: true,
-      //   contentPadding: const EdgeInsets.all(8),
-      // ),
       decoration: InputDecoration(
         labelText: label,
         hintText: hintText,

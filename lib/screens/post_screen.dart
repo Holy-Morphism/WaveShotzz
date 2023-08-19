@@ -1,10 +1,11 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:kylipp/firebase/auth.dart';
-import 'package:kylipp/providers/current_user.dart';
-import 'package:kylipp/widgets/bottom_navbar.dart';
-import 'package:provider/provider.dart';
+import 'package:kylipp/models/user.dart';
+import 'package:kylipp/widgets/video_player_view.dart';
+import 'package:video_player/video_player.dart';
 
 import '../widgets/input.dart';
 
@@ -15,16 +16,18 @@ class PostScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<CurrentUserProvider>(context, listen: false);
     final height = MediaQuery.of(context).size.height -
         MediaQuery.of(context).padding.top -
         kBottomNavigationBarHeight;
-    final Uint8List image =
-        ModalRoute.of(context)!.settings.arguments as Uint8List;
+    final Map<String, dynamic> map =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final Uint8List image = map['image'];
+    final bool isVideo = map['isvideo'];
     void postImage() {
-      user.postPicture(
+      User.postPicture(
           post: image,
           caption: _caption.text,
+          isVideo: isVideo,
           date: DateTime.now(),
           uid: AuthMethods.uid);
       Navigator.of(context).pop();
@@ -32,7 +35,6 @@ class PostScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: const BottomNavBar(),
         body: SingleChildScrollView(
           child: Container(
             margin: const EdgeInsets.all(10),
@@ -46,10 +48,14 @@ class PostScreen extends StatelessWidget {
                   clipBehavior: Clip.hardEdge,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
-                  child: Image(
-                    image: MemoryImage(image),
-                    fit: BoxFit.cover,
-                  ),
+                  child: isVideo
+                      ? VideoPlayerVeiw(
+                          url: (map['file'] as XFile).path,
+                          dataSourceType: DataSourceType.file)
+                      : Image(
+                          image: MemoryImage(image),
+                          fit: BoxFit.cover,
+                        ),
                 ),
               ),
               Expanded(
