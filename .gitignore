@@ -45,7 +45,10 @@ app.*.map.json
 
 
 #Firebase Keys
-lib/firebase/firebase_options.dart
+lib/firebase_options.dart
 
 #Signing Key
 /android/key.properties
+
+#contants
+lib/core/constants/constants.dart

@@ -1,30 +1,30 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'package:kylipp/providers/posts_of_following_provider.dart';
-import 'package:kylipp/providers/user_provider.dart';
-import 'package:kylipp/providers/users_provider.dart';
-import 'package:kylipp/screens/chat_screen.dart';
+import 'package:kylipp/previous/providers/posts_of_following_provider.dart';
+import 'package:kylipp/previous/providers/user_provider.dart';
+import 'package:kylipp/previous/providers/users_provider.dart';
+import 'package:kylipp/previous/screens/chat_screen.dart';
 
-import 'package:kylipp/screens/messages_screen.dart';
-import 'package:kylipp/screens/explore_post_detail.dart';
-import 'package:kylipp/screens/home_screen.dart';
-import 'package:kylipp/screens/login_screen.dart';
-import 'package:kylipp/screens/other_profile_screen.dart';
-import 'package:kylipp/screens/profile_post_detail.dart';
-import 'package:kylipp/screens/post_screen.dart';
-import 'package:kylipp/screens/signup_screen.dart';
+import 'package:kylipp/previous/screens/messages_screen.dart';
+import 'package:kylipp/previous/screens/explore_post_detail.dart';
+import 'package:kylipp/previous/screens/home_screen.dart';
+import 'package:kylipp/previous/screens/login_screen.dart';
+import 'package:kylipp/previous/screens/other_profile_screen.dart';
+import 'package:kylipp/previous/screens/profile_post_detail.dart';
+import 'package:kylipp/previous/screens/post_screen.dart';
+import 'package:kylipp/previous/screens/signup_screen.dart';
 import 'package:provider/provider.dart';
 
-import 'firebase/auth.dart';
-import 'firebase/firebase_options.dart';
+import 'previous/firebase/auth.dart';
+import 'firebase_options.dart';
 
-void main() async {
-  runApp(const MyApp());
+void main() {
+  runApp(const KYLIPP());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class KYLIPP extends StatelessWidget {
+  const KYLIPP({super.key});
 
   // This widget is the root of your application.
   @override
