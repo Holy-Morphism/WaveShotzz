@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:kylipp/core/error/failure.dart';
 import 'package:kylipp/features/authentication/domain/usecases/sign_in_user.dart';
 import 'package:mockito/mockito.dart';
 
@@ -18,17 +19,35 @@ void main() {
   const String email = 'user@gmail.com';
   const String password = 'password123';
 
-  test('Sign in user successfully', () async {
-    //arrange
-    when(mockAuthenticationRepository.signInUser(
-            username: username, email: email, password: password))
-        .thenAnswer((_) async => const Right(null));
+  group('Sign In User Usecase', () {
+    test('Sign in user successfully', () async {
+      //arrange
+      when(mockAuthenticationRepository.signInUser(
+              username: username, email: email, password: password))
+          .thenAnswer((_) async => const Right(null));
 
-    //act
-    final result =
-        await signInUser(username: username, email: email, password: password);
+      //act
+      final result = await signInUser(
+          username: username, email: email, password: password);
 
-    //assert
-    expect(result, const Right(null));
+      //assert
+      expect(result, const Right(null));
+    });
+
+    const message = 'unable to sign in';
+
+    test('Sign in user unsuccessful', () async {
+      //arrange
+      when(mockAuthenticationRepository.signInUser(
+              username: username, email: email, password: password))
+          .thenAnswer((_) async => const Left(SignInFailure(message)));
+
+      //act
+      final result = await signInUser(
+          username: username, email: email, password: password);
+
+      //assert
+      expect(result, const Left(SignInFailure(message)));
+    });
   });
 }

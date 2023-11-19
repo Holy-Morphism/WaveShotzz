@@ -6,27 +6,27 @@ class UserEntity extends Equatable {
   final String username;
   final String email;
   final String password;
-  final String photoUrl;
-  final String bio;
-  final List followers;
-  final List following;
-  final List posts;
-  final Map chats;
+  final String? photoUrl;
+  final String? bio;
+  final List? followers;
+  final List? following;
+  final List? posts;
+  final Map? chats;
 
   const UserEntity(
       {required this.uid,
       required this.username,
       required this.email,
       required this.password,
-      required this.bio,
-      required this.followers,
-      required this.following,
-      required this.photoUrl,
-      required this.posts,
-      this.chats = const {}});
+      this.bio,
+      this.followers,
+      this.following,
+      this.photoUrl,
+      this.posts,
+      this.chats});
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       uid,
       username,

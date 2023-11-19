@@ -14,6 +14,14 @@ abstract class Failure extends Equatable {
   bool get stringify => true;
 }
 
-class UserDataFailure extends Failure {
-  const UserDataFailure(super.message);
+class LogInFailure extends Failure {
+  const LogInFailure(super.message);
+}
+
+class SignInFailure extends Failure {
+  const SignInFailure(super.message);
+}
+
+class SignOutFailure extends Failure {
+  const SignOutFailure(super.message);
 }
