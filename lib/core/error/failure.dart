@@ -25,3 +25,11 @@ class SignInFailure extends Failure {
 class SignOutFailure extends Failure {
   const SignOutFailure(super.message);
 }
+
+class GetUserFailure extends Failure {
+  const GetUserFailure(super.message);
+}
+
+class GeneralError extends Failure {
+  const GeneralError(super.message);
+}
