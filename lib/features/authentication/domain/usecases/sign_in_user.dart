@@ -12,10 +12,15 @@ class SignInUser {
   Future<Either<Failure, void>> call({
     required String username,
     required String email,
+    required String password,
     Uint8List? image,
     String? bio,
   }) {
     return _authenticationRepository.signInUser(
-        username: username, email: email, image: image, bio: bio);
+        username: username,
+        email: email,
+        password: password,
+        image: image,
+        bio: bio);
   }
 }

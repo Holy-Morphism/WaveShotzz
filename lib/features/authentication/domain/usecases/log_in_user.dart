@@ -8,10 +8,10 @@ class LogInUser {
   LogInUser(this._authenticationRepository);
 
   Future<Either<Failure, void>> call({
-    required String username,
+    required String password,
     required String email,
   }) {
     return _authenticationRepository.logInUser(
-        username: username, email: email);
+        password: password, email: email);
   }
 }
