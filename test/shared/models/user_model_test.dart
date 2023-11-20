@@ -1,7 +1,7 @@
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kylipp/features/authentication/data/models/user_model.dart';
-import 'package:kylipp/features/authentication/domain/entities/user_entity.dart';
+import 'package:kylipp/core/shared/models/user_model.dart';
+import 'package:kylipp/core/shared/entities/user_entity.dart';
 
 void main() {
   const user = UserModel(

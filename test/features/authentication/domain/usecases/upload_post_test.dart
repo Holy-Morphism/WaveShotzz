@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:kylipp/core/error/failure.dart';
-import 'package:kylipp/features/authentication/domain/usecases/upload_post.dart';
+import 'package:kylipp/features/user/domain/usecases/upload_post.dart';
 import 'package:mockito/mockito.dart';
 
 import '../../helper/test_helper.mocks.dart';

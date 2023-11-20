@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:kylipp/core/error/failure.dart';
-import 'package:kylipp/features/authentication/domain/entities/user_entity.dart';
-import 'package:kylipp/features/authentication/domain/usecases/get_user.dart';
+import 'package:kylipp/core/shared/entities/user_entity.dart';
+import 'package:kylipp/features/user/domain/usecases/get_user.dart';
 import 'package:mockito/mockito.dart';
 
 import '../../helper/test_helper.mocks.dart';

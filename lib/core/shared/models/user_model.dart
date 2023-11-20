@@ -1,4 +1,4 @@
-import 'package:kylipp/features/authentication/domain/entities/user_entity.dart';
+import 'package:kylipp/core/shared/entities/user_entity.dart';
 
 class UserModel extends UserEntity {
   const UserModel(

@@ -8,11 +8,10 @@ import 'dart:typed_data' as _i6;
 
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:kylipp/core/error/failure.dart' as _i5;
-import 'package:kylipp/features/authentication/domain/entities/user_entity.dart'
-    as _i8;
+import 'package:kylipp/core/shared/entities/user_entity.dart' as _i8;
 import 'package:kylipp/features/authentication/domain/repositories/authentication_repository.dart'
     as _i3;
-import 'package:kylipp/features/authentication/domain/repositories/user_repository.dart'
+import 'package:kylipp/features/user/domain/repositories/user_repository.dart'
     as _i7;
 import 'package:mockito/mockito.dart' as _i1;
 

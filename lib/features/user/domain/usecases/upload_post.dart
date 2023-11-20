@@ -2,7 +2,7 @@ import 'dart:typed_data';
 
 import 'package:dartz/dartz.dart';
 import 'package:kylipp/core/error/failure.dart';
-import 'package:kylipp/features/authentication/domain/repositories/user_repository.dart';
+import 'package:kylipp/features/user/domain/repositories/user_repository.dart';
 
 class UploadPost {
   final UserRepository _userRepository;

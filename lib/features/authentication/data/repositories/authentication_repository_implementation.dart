@@ -6,7 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:kylipp/core/constants/constants.dart';
 import 'package:kylipp/core/error/failure.dart';
-import 'package:kylipp/features/authentication/data/models/user_model.dart';
+import 'package:kylipp/core/shared/models/user_model.dart';
 import 'package:kylipp/features/authentication/domain/repositories/authentication_repository.dart';
 
 class AuthenticationRepositoryImplementation
