@@ -8,11 +8,8 @@ import 'dart:typed_data' as _i6;
 
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:kylipp/core/error/failure.dart' as _i5;
-import 'package:kylipp/core/shared/entities/user_entity.dart' as _i8;
 import 'package:kylipp/features/authentication/domain/repositories/authentication_repository.dart'
     as _i3;
-import 'package:kylipp/features/user/domain/repositories/user_repository.dart'
-    as _i7;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -132,60 +129,6 @@ class MockAuthenticationRepository extends _i1.Mock
             {
               #email: email,
               #password: password,
-            },
-          ),
-        )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
-}
-
-/// A class which mocks [UserRepository].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockUserRepository extends _i1.Mock implements _i7.UserRepository {
-  MockUserRepository() {
-    _i1.throwOnMissingStub(this);
-  }
-
-  @override
-  _i4.Future<_i2.Either<_i5.Failure, _i8.UserEntity>> getUser() =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getUser,
-          [],
-        ),
-        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i8.UserEntity>>.value(
-            _FakeEither_0<_i5.Failure, _i8.UserEntity>(
-          this,
-          Invocation.method(
-            #getUser,
-            [],
-          ),
-        )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, _i8.UserEntity>>);
-
-  @override
-  _i4.Future<_i2.Either<_i5.Failure, void>> upLoadPost({
-    required _i6.Uint8List? post,
-    required String? caption,
-  }) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #upLoadPost,
-          [],
-          {
-            #post: post,
-            #caption: caption,
-          },
-        ),
-        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
-            _FakeEither_0<_i5.Failure, void>(
-          this,
-          Invocation.method(
-            #upLoadPost,
-            [],
-            {
-              #post: post,
-              #caption: caption,
             },
           ),
         )),
