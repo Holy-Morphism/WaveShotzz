@@ -24,13 +24,13 @@ void main() {
       //arrange
       when(mockAuthenticationRepository.logInUser(
               email: email, password: password))
-          .thenAnswer((_) async => right(null));
+          .thenAnswer((_) async => const Right(null));
 
       //act
       final result = await logInUser(email: email, password: password);
 
       //assert
-      expect(result, right(null));
+      expect(result, const Right(null));
     });
 
     test('Log In unsuccessful', () async {

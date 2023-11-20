@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:kylipp/core/error/failure.dart';
+import 'package:kylipp/features/user/domain/usecases/unfollow.dart';
 import 'package:mockito/mockito.dart';
 
 import '../../helper/test_helper.mocks.dart';
@@ -23,7 +24,7 @@ void main() {
       when(mockUserRepository.unfollow(uid: uid))
           .thenAnswer((_) async => const Right(null));
       //act
-      final result = await unfollow(uid);
+      final result = await unfollow(uid: uid);
 
       //assert
       expect(result, equals(const Right(null)));
@@ -34,7 +35,7 @@ void main() {
       when(mockUserRepository.unfollow(uid: uid))
           .thenAnswer((_) async => const Left(GeneralError(message)));
       //act
-      final result = await unfollow(uid);
+      final result = await unfollow(uid: uid);
 
       //assert
       expect(result, equals(const Left(GeneralError(message))));

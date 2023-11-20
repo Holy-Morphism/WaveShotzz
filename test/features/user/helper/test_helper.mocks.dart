@@ -88,4 +88,70 @@ class MockUserRepository extends _i1.Mock implements _i3.UserRepository {
           ),
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, void>> follow({required String? uid}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #follow,
+          [],
+          {#uid: uid},
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
+            _FakeEither_0<_i5.Failure, void>(
+          this,
+          Invocation.method(
+            #follow,
+            [],
+            {#uid: uid},
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, void>> unfollow({required String? uid}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #unfollow,
+          [],
+          {#uid: uid},
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
+            _FakeEither_0<_i5.Failure, void>(
+          this,
+          Invocation.method(
+            #unfollow,
+            [],
+            {#uid: uid},
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, void>> likePhoto({
+    required String? uid,
+    required DateTime? dateTime,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #likePhoto,
+          [],
+          {
+            #uid: uid,
+            #dateTime: dateTime,
+          },
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
+            _FakeEither_0<_i5.Failure, void>(
+          this,
+          Invocation.method(
+            #likePhoto,
+            [],
+            {
+              #uid: uid,
+              #dateTime: dateTime,
+            },
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
 }
