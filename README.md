@@ -1,16 +1,47 @@
-# kylipp
+# Kylipp - Social Networking App
 
-A new Flutter project.
+Kylipp is a social networking app inspired by Instagram, showcasing clean architecture and Bloc pattern implementation.
+
+## Features
+
+- Authentication: Sign in, sign up, and sign out functionality.
+- User Profile: View and interact with user profiles.
+- Social Interactions: Follow, unfollow, like, and upload posts.
+- Graph Visualization: Explore user networks in a graph.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Ensure Firebase is set up for both web and mobile in `firebase_options.dart`.
+2. Run the app using `flutter run`.
 
-A few resources to get you started if this is your first Flutter project:
+## Project Structure
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **core**: Core functionalities and shared elements.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  - **constants**: Constants used throughout the app.
+  - **error**: Definition of application-specific errors.
+  - **shared**: Shared entities and models.
+  - **usecase**: Definition of use case abstraction.
+
+- **features**:
+  - **authentication**: User authentication feature.
+  - **user**: User-related functionalities.
+- **previous**: Legacy code from the MVC architecture.
+
+## Prerequisites
+
+- Flutter
+- Firebase account with web and mobile configurations
+
+## Contributing
+
+Contributions are welcome! Please check our [contribution guidelines](CONTRIBUTING.md).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE.md).
+
+## Acknowledgments
+
+- Firebase for providing a reliable backend infrastructure.
+- The Flutter and Bloc communities for valuable resources.
