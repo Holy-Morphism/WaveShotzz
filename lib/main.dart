@@ -1,22 +1,22 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'package:kylipp/previous/providers/posts_of_following_provider.dart';
-import 'package:kylipp/previous/providers/user_provider.dart';
-import 'package:kylipp/previous/providers/users_provider.dart';
-import 'package:kylipp/previous/screens/chat_screen.dart';
+import 'package:kylipp/legacy/providers/posts_of_following_provider.dart';
+import 'package:kylipp/legacy/providers/user_provider.dart';
+import 'package:kylipp/legacy/providers/users_provider.dart';
+import 'package:kylipp/legacy/screens/chat_screen.dart';
 
-import 'package:kylipp/previous/screens/messages_screen.dart';
-import 'package:kylipp/previous/screens/explore_post_detail.dart';
-import 'package:kylipp/previous/screens/home_screen.dart';
-import 'package:kylipp/previous/screens/login_screen.dart';
-import 'package:kylipp/previous/screens/other_profile_screen.dart';
-import 'package:kylipp/previous/screens/profile_post_detail.dart';
-import 'package:kylipp/previous/screens/post_screen.dart';
-import 'package:kylipp/previous/screens/signup_screen.dart';
+import 'package:kylipp/legacy/screens/messages_screen.dart';
+import 'package:kylipp/legacy/screens/explore_post_detail.dart';
+import 'package:kylipp/legacy/screens/home_screen.dart';
+import 'package:kylipp/legacy/screens/login_screen.dart';
+import 'package:kylipp/legacy/screens/other_profile_screen.dart';
+import 'package:kylipp/legacy/screens/profile_post_detail.dart';
+import 'package:kylipp/legacy/screens/post_screen.dart';
+import 'package:kylipp/legacy/screens/signup_screen.dart';
 import 'package:provider/provider.dart';
 
-import 'previous/firebase/auth.dart';
+import 'legacy/firebase/auth.dart';
 import 'firebase_options.dart';
 
 void main() {
