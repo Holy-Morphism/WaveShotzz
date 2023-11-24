@@ -7,7 +7,7 @@ import 'package:kylipp/legacy/models/user.dart';
 import 'package:kylipp/legacy/widgets/video_player_view.dart';
 import 'package:video_player/video_player.dart';
 
-import '../widgets/input.dart';
+import '../../features/authentication/presentation/widgets/user_input.dart';
 
 class PostScreen extends StatelessWidget {
   PostScreen({super.key});
@@ -65,7 +65,7 @@ class PostScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        TextFieldInput(
+                        UserInput(
                           textEditingController: _caption,
                           hintText: 'Enter a caption!',
                           label: 'Caption',

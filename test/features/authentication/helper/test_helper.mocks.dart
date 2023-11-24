@@ -10,6 +10,14 @@ import 'package:dartz/dartz.dart' as _i2;
 import 'package:kylipp/core/error/failure.dart' as _i5;
 import 'package:kylipp/features/authentication/domain/repositories/authentication_repository.dart'
     as _i3;
+import 'package:kylipp/features/authentication/domain/usecases/is_signed_in.dart'
+    as _i7;
+import 'package:kylipp/features/authentication/domain/usecases/log_in_user.dart'
+    as _i8;
+import 'package:kylipp/features/authentication/domain/usecases/sign_in_user.dart'
+    as _i9;
+import 'package:kylipp/features/authentication/domain/usecases/sign_out.dart'
+    as _i10;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -130,6 +138,135 @@ class MockAuthenticationRepository extends _i1.Mock
               #email: email,
               #password: password,
             },
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+}
+
+/// A class which mocks [IsSignedIn].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockIsSignedIn extends _i1.Mock implements _i7.IsSignedIn {
+  MockIsSignedIn() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  bool call() => (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+        ),
+        returnValue: false,
+      ) as bool);
+}
+
+/// A class which mocks [LogInUser].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockLogInUser extends _i1.Mock implements _i8.LogInUser {
+  MockLogInUser() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, void>> call({
+    required String? password,
+    required String? email,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+          {
+            #password: password,
+            #email: email,
+          },
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
+            _FakeEither_0<_i5.Failure, void>(
+          this,
+          Invocation.method(
+            #call,
+            [],
+            {
+              #password: password,
+              #email: email,
+            },
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+}
+
+/// A class which mocks [SignInUser].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockSignInUser extends _i1.Mock implements _i9.SignInUser {
+  MockSignInUser() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, void>> call({
+    required String? username,
+    required String? email,
+    required String? password,
+    _i6.Uint8List? image,
+    String? bio,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+          {
+            #username: username,
+            #email: email,
+            #password: password,
+            #image: image,
+            #bio: bio,
+          },
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
+            _FakeEither_0<_i5.Failure, void>(
+          this,
+          Invocation.method(
+            #call,
+            [],
+            {
+              #username: username,
+              #email: email,
+              #password: password,
+              #image: image,
+              #bio: bio,
+            },
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+}
+
+/// A class which mocks [SignOut].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockSignOut extends _i1.Mock implements _i10.SignOut {
+  MockSignOut() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, void>> call({dynamic param}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+          {#param: param},
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
+            _FakeEither_0<_i5.Failure, void>(
+          this,
+          Invocation.method(
+            #call,
+            [],
+            {#param: param},
           ),
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, void>>);

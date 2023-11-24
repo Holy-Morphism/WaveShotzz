@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:kylipp/features/authentication/presentation/screens/log_in_screen.dart';
 import 'package:kylipp/legacy/models/user.dart';
 import 'package:kylipp/legacy/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../firebase/auth.dart';
-import '../screens/login_screen.dart';
 import '../widgets/profile_grid.dart';
 import '../widgets/info.dart';
 import '../widgets/profile_image.dart';
@@ -22,7 +22,7 @@ class ProfilePage extends StatelessWidget {
 
     void signOut() {
       AuthMethods.signOut();
-      Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
+      Navigator.of(context).pushReplacementNamed(LogInScreen.routeName);
     }
 
     return user == null
