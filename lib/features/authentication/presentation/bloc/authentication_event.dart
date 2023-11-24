@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:equatable/equatable.dart';
 
 abstract class AuthenticationEvent extends Equatable {
+  const AuthenticationEvent();
   @override
   List<Object?> get props => [];
 }
@@ -14,7 +15,7 @@ class AuthenticationSignIn extends AuthenticationEvent {
   final String email;
   final String? bio;
   final Uint8List? image;
-  AuthenticationSignIn({
+  const AuthenticationSignIn({
     required this.username,
     required this.email,
     required this.password,
@@ -30,7 +31,7 @@ class AuthenticationLogIn extends AuthenticationEvent {
   final String password;
   final String email;
 
-  AuthenticationLogIn({
+  const AuthenticationLogIn({
     required this.password,
     required this.email,
   });
@@ -39,6 +40,10 @@ class AuthenticationLogIn extends AuthenticationEvent {
   List<Object> get props => [password, email];
 }
 
-class AuthenticationStart extends AuthenticationEvent {}
+class AuthenticationStart extends AuthenticationEvent {
+  const AuthenticationStart();
+}
 
-class AuthenticationSignOut extends AuthenticationEvent {}
+class AuthenticationSignOut extends AuthenticationEvent {
+  const AuthenticationSignOut();
+}

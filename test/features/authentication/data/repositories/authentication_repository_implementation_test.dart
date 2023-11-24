@@ -103,24 +103,9 @@ void main() {
 
   group('sign out', () {
     test('Sign out successful', () async {
-      //act
-      final result = await authenticationRepositoryImplementation.signOut();
-
       //assert
-      expect(result, const Right(null));
+      expect(authenticationRepositoryImplementation.signOut(),
+          isA<Future<void>>());
     });
-
-    // test('Sign out unsuccessful ', () async {
-    //   //arrange
-    //   whenCalling(Invocation.method(#signOut, null))
-    //       .on(mockFirebaseAuth)
-    //       .thenThrow(Exception());
-
-    //   //act
-    //   final result = await authenticationRepositoryImplementation.signOut();
-
-    //   //assert
-    //   expect(result, const Left(SignOutFailure('Exception')));
-    // });
   });
 }

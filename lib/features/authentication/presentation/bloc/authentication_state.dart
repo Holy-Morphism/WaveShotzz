@@ -2,6 +2,7 @@
 import 'package:equatable/equatable.dart';
 
 abstract class AuthenticationState extends Equatable {
+  const AuthenticationState();
   @override
   List<Object?> get props => [];
 }
@@ -10,13 +11,14 @@ class AuthenticationInitial extends AuthenticationState {}
 
 class AuthenticationFailed extends AuthenticationState {
   final String error;
-  AuthenticationFailed(this.error);
+  const AuthenticationFailed(this.error);
 
   @override
   List<Object> get props => [error];
 }
 
 class AuthenticationSuccess extends AuthenticationState {
+  const AuthenticationSuccess();
   // final String name;
   // AuthenticationSuccess(this.name);
 
@@ -24,6 +26,10 @@ class AuthenticationSuccess extends AuthenticationState {
   // List<Object> get props => [name];
 }
 
-class AuthenticationLoading extends AuthenticationState {}
+class AuthenticationLoading extends AuthenticationState {
+  const AuthenticationLoading();
+}
 
-class AuthenticationUnauthenticated extends AuthenticationState {}
+class AuthenticationUnauthenticated extends AuthenticationState {
+  const AuthenticationUnauthenticated();
+}

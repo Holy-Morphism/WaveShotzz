@@ -18,23 +18,22 @@ class AuthenticationBloc
       : super(AuthenticationInitial()) {
     on<AuthenticationStart>((event, emit) {
       if (isSignedIn()) {
-        emit(AuthenticationSuccess());
+        emit(const AuthenticationSuccess());
       } else {
-        emit(AuthenticationUnauthenticated());
+        emit(const AuthenticationUnauthenticated());
       }
     });
 
     on<AuthenticationLogIn>((event, emit) async {
-      emit(AuthenticationLoading());
+      emit(const AuthenticationLoading());
       final result =
           await logInUser(email: event.email, password: event.password);
       result.fold((l) => emit(AuthenticationFailed(l.message)),
-          (r) => emit(AuthenticationSuccess()));
-      emit(AuthenticationUnauthenticated());
+          (r) => emit(const AuthenticationSuccess()));
     });
 
     on<AuthenticationSignIn>((event, emit) async {
-      emit(AuthenticationLoading());
+      emit(const AuthenticationLoading());
       final result = await signInUser(
           email: event.email,
           username: event.username,
@@ -42,14 +41,13 @@ class AuthenticationBloc
           bio: event.bio,
           image: event.image);
       result.fold((l) => emit(AuthenticationFailed(l.message)),
-          (r) => emit(AuthenticationSuccess()));
-      emit(AuthenticationUnauthenticated());
+          (r) => emit(const AuthenticationSuccess()));
     });
 
     on<AuthenticationSignOut>((event, emit) async {
-      final result = await signOut();
-      result.fold((l) => AuthenticationFailed(l.message),
-          (r) => emit(AuthenticationUnauthenticated()));
+      emit(const AuthenticationLoading());
+      await signOut();
+      emit(const AuthenticationUnauthenticated());
     });
   }
 }

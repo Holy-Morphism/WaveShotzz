@@ -68,11 +68,7 @@ class AuthenticationRepositoryImplementation
   }
 
   @override
-  Future<Either<Failure, void>> signOut() async {
-    try {
-      return Right(await _auth.signOut());
-    } catch (e) {
-      return Left(SignOutFailure(e.toString()));
-    }
+  Future<void> signOut() async {
+    return _auth.signOut();
   }
 }
