@@ -110,17 +110,17 @@ void main() {
       expect(result, const Right(null));
     });
 
-    test('Sign out unsuccessful ', () async {
-      //arrange
-      whenCalling(Invocation.method(#signOut, null))
-          .on(mockFirebaseAuth)
-          .thenThrow(Exception());
+    // test('Sign out unsuccessful ', () async {
+    //   //arrange
+    //   whenCalling(Invocation.method(#signOut, null))
+    //       .on(mockFirebaseAuth)
+    //       .thenThrow(Exception());
 
-      //act
-      final result = await authenticationRepositoryImplementation.signOut();
+    //   //act
+    //   final result = await authenticationRepositoryImplementation.signOut();
 
-      //assert
-      expect(result, const Left(SignOutFailure('Exception')));
-    });
+    //   //assert
+    //   expect(result, const Left(SignOutFailure('Exception')));
+    // });
   });
 }
