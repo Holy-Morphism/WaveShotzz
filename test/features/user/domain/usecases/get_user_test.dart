@@ -27,7 +27,8 @@ void main() {
   group('Get User data', () {
     test('Get user data successful', () async {
       //arrange
-      when(mockUserRepository.getUser()).thenAnswer((_) async => right(user));
+      when(mockUserRepository.getUser())
+          .thenAnswer((_) async => const Right(user));
 
       //act
       final result = await getUser();

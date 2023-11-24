@@ -29,9 +29,9 @@ class AuthenticationRepositoryImplementation
       {required String email, required String password}) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      return right(null);
+      return const Right(null);
     } catch (e) {
-      return left(LogInFailure(e.toString()));
+      return Left(LogInFailure(e.toString()));
     }
   }
 
@@ -61,7 +61,7 @@ class AuthenticationRepositoryImplementation
           photoUrl: url);
 
       await _database.collection('users').doc(uid).set(user.toJson());
-      return right(null);
+      return const Right(null);
     } catch (e) {
       return Left(SignInFailure(e.toString()));
     }
@@ -70,10 +70,9 @@ class AuthenticationRepositoryImplementation
   @override
   Future<Either<Failure, void>> signOut() async {
     try {
-      await _auth.signOut();
-      return right(null);
+      return Right(await _auth.signOut());
     } catch (e) {
-      return left(SignOutFailure(e.toString()));
+      return Left(SignOutFailure(e.toString()));
     }
   }
 }
