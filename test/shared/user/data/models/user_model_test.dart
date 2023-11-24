@@ -1,7 +1,8 @@
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:waveshotzz/core/shared/user/data/models/user_model.dart';
-import 'package:waveshotzz/core/shared/user/domain/entities/user_entity.dart';
+
+import 'package:waveshotzz/features/authentication/data/models/user_model.dart';
+import 'package:waveshotzz/features/authentication/domain/entities/user_entity.dart';
 
 void main() {
   const user = UserModel(
