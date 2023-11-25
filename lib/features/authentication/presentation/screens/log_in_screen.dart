@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kylipp/config/router/routes.dart';
 import 'package:kylipp/core/constants/constants.dart';
 import 'package:kylipp/legacy/firebase/auth.dart';
 import 'package:kylipp/legacy/screens/home_screen.dart';
@@ -52,9 +51,10 @@ class _LogInScreenState extends State<LogInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Container(
+    return Scaffold(
+      appBar: AppBar(),
+      body: SafeArea(
+        child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 32),
           width: double.infinity,
           child: Column(
@@ -120,7 +120,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   ),
                   TextButton(
                       onPressed: () {
-                        context.go(Routes.signInScreen);
+                        context.go('/');
                       },
                       child: const Text(
                         'Sign Up',

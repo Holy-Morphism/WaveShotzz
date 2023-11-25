@@ -79,117 +79,116 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
     return Scaffold(
+      appBar: AppBar(
+        forceMaterialTransparency: true,
+        backgroundColor: Colors.transparent,
+      ),
       body: SafeArea(
-        child: SizedBox(
-          height: height,
-          child: SingleChildScrollView(
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 32),
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 16),
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    child: Image.asset(logo),
-                  ),
-                  const SizedBox(height: 16),
-                  Stack(
-                    children: [
-                      CircleAvatar(
-                          radius: 64,
-                          backgroundImage: _image != null
-                              ? MemoryImage(_image!)
-                              : const AssetImage(defaultImage)
-                                  as ImageProvider),
-                      Positioned(
-                        bottom: -10,
-                        left: 80,
-                        child: IconButton(
-                          onPressed: chooseImage,
-                          icon: const Icon(
-                            Icons.add_a_photo,
-                            color: Colors.white,
-                          ),
+        child: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            width: double.infinity,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(height: 16),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Image.asset(logo),
+                ),
+                const SizedBox(height: 16),
+                Stack(
+                  children: [
+                    CircleAvatar(
+                        radius: 64,
+                        backgroundImage: _image != null
+                            ? MemoryImage(_image!)
+                            : const AssetImage(defaultImage) as ImageProvider),
+                    Positioned(
+                      bottom: -10,
+                      left: 80,
+                      child: IconButton(
+                        onPressed: chooseImage,
+                        icon: const Icon(
+                          Icons.add_a_photo,
+                          color: Colors.white,
                         ),
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 24),
-                  UserInput(
-                    textEditingController: _username,
-                    textInputType: TextInputType.text,
-                    hintText: 'Enter your username',
-                    label: 'Username',
-                  ),
-                  const SizedBox(height: 24),
-                  UserInput(
-                    textEditingController: _email,
-                    textInputType: TextInputType.emailAddress,
-                    hintText: 'Enter your Email',
-                    label: 'Email',
-                  ),
-                  const SizedBox(height: 24),
-                  UserInput(
-                    textEditingController: _password,
-                    textInputType: TextInputType.text,
-                    hintText: 'Enter your Password',
-                    label: 'Password',
-                    isPass: true,
-                  ),
-                  const SizedBox(height: 24),
-                  UserInput(
-                    textEditingController: _bio,
-                    textInputType: TextInputType.text,
-                    hintText: 'Enter your Bio',
-                    label: 'Bio',
-                  ),
-                  const SizedBox(height: 24),
-                  SizedBox(
-                    width: double.infinity,
-                    child: OutlinedButton(
-                      onPressed: _signUp,
-                      style: OutlinedButton.styleFrom(
-                        backgroundColor: Colors.red,
-                        side: const BorderSide(width: 2, color: Colors.white),
                       ),
-                      child: _isloading
-                          ? const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 10),
-                              child: CircularProgressIndicator(
-                                color: Colors.grey,
-                              ),
-                            )
-                          : const Text(
-                              'Sign Up',
-                              style: TextStyle(
-                                color: Colors.white,
-                              ),
-                            ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 24),
+                UserInput(
+                  textEditingController: _username,
+                  textInputType: TextInputType.text,
+                  hintText: 'Enter your username',
+                  label: 'Username',
+                ),
+                const SizedBox(height: 24),
+                UserInput(
+                  textEditingController: _email,
+                  textInputType: TextInputType.emailAddress,
+                  hintText: 'Enter your Email',
+                  label: 'Email',
+                ),
+                const SizedBox(height: 24),
+                UserInput(
+                  textEditingController: _password,
+                  textInputType: TextInputType.text,
+                  hintText: 'Enter your Password',
+                  label: 'Password',
+                  isPass: true,
+                ),
+                const SizedBox(height: 24),
+                UserInput(
+                  textEditingController: _bio,
+                  textInputType: TextInputType.text,
+                  hintText: 'Enter your Bio',
+                  label: 'Bio',
+                ),
+                const SizedBox(height: 24),
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton(
+                    onPressed: _signUp,
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      side: const BorderSide(width: 2, color: Colors.white),
                     ),
+                    child: _isloading
+                        ? const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 10),
+                            child: CircularProgressIndicator(
+                              color: Colors.grey,
+                            ),
+                          )
+                        : const Text(
+                            'Sign Up',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
                   ),
-                  const SizedBox(height: 16),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text('Already have an account?'),
-                      TextButton(
-                        onPressed: () {
-                          context.go(Routes.logInScreen);
-                        },
-                        child: const Text(
-                          'Login',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                ],
-              ),
+                ),
+                const SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Already have an account?'),
+                    TextButton(
+                      onPressed: () {
+                        context.go(Routes.logInScreen);
+                      },
+                      child: const Text(
+                        'Login',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 16),
+              ],
             ),
           ),
         ),
