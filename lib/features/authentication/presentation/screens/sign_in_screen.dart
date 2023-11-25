@@ -7,9 +7,8 @@ import 'package:kylipp/config/router/routes.dart';
 import 'package:kylipp/legacy/firebase/auth.dart';
 import 'package:kylipp/legacy/screens/home_screen.dart';
 
-import 'package:kylipp/legacy/utils/utils.dart';
-
 import '../../../../core/constants/constants.dart';
+import '../../../../utils/utils.dart';
 import '../widgets/user_input.dart';
 
 class SignInScreen extends StatefulWidget {

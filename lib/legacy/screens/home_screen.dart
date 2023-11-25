@@ -11,7 +11,7 @@ import 'package:kylipp/legacy/screens/post_screen.dart';
 import 'package:kylipp/legacy/widgets/bottom_navbar.dart';
 import 'package:kylipp/legacy/widgets/drop_down_search.dart';
 
-import '../utils/utils.dart';
+import '../../utils/utils.dart';
 import 'messages_screen.dart';
 
 class HomeScreen extends StatefulWidget {
