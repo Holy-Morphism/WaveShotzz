@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kylipp/config/theme/theme.dart';
-import 'package:kylipp/features/authentication/presentation/screens/log_in_screen.dart';
+import 'package:kylipp/features/authentication/presentation/bloc/authentication_bloc.dart';
 
 import 'firebase_options.dart';
 import 'injection_container.dart';
@@ -27,7 +28,14 @@ class KYLIPP extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: theme,
-      home: const LogInScreen(),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider<AuthenticationBloc>(
+            create: (context) => locator()..isSignedIn,
+          ),
+        ],
+        child: Container(),
+      ),
     );
   }
 }

@@ -5,7 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:kylipp/legacy/firebase/auth.dart';
 import 'package:kylipp/legacy/screens/home_screen.dart';
 
-import 'package:kylipp/legacy/utils/utils.dart';
+import 'package:kylipp/utils/utils.dart';
 
 import '../../../../core/constants/constants.dart';
 import '../widgets/user_input.dart';
