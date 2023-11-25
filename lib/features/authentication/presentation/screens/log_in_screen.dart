@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:kylipp/config/router/routes.dart';
 import 'package:kylipp/core/constants/constants.dart';
 import 'package:kylipp/legacy/firebase/auth.dart';
 import 'package:kylipp/legacy/screens/home_screen.dart';
 import 'package:kylipp/utils/utils.dart';
 import 'package:kylipp/features/authentication/presentation/widgets/user_input.dart';
 
-import 'sign_in_screen.dart';
-
 class LogInScreen extends StatefulWidget {
-  static const routeName = '/login-screen';
   const LogInScreen({super.key});
 
   @override
@@ -121,8 +120,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   ),
                   TextButton(
                       onPressed: () {
-                        Navigator.of(context)
-                            .pushReplacementNamed(SignInScreen.routeName);
+                        context.go(Routes.signInScreen);
                       },
                       child: const Text(
                         'Sign Up',

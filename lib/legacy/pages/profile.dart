@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kylipp/features/authentication/presentation/screens/log_in_screen.dart';
 import 'package:kylipp/legacy/models/user.dart';
 import 'package:kylipp/legacy/providers/user_provider.dart';
 import 'package:provider/provider.dart';
@@ -22,7 +21,7 @@ class ProfilePage extends StatelessWidget {
 
     void signOut() {
       AuthMethods.signOut();
-      Navigator.of(context).pushReplacementNamed(LogInScreen.routeName);
+      //  Navigator.of(context).pushReplacementNamed(LogInScreen.routeName);
     }
 
     return user == null

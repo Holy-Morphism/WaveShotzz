@@ -1,7 +1,9 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:kylipp/config/router/routes.dart';
 import 'package:kylipp/legacy/firebase/auth.dart';
 import 'package:kylipp/legacy/screens/home_screen.dart';
 
@@ -9,11 +11,9 @@ import 'package:kylipp/utils/utils.dart';
 
 import '../../../../core/constants/constants.dart';
 import '../widgets/user_input.dart';
-import 'log_in_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
-  static const routeName = '/signin-screen';
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
@@ -178,8 +178,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       const Text('Already have an account?'),
                       TextButton(
                         onPressed: () {
-                          Navigator.of(context)
-                              .pushReplacementNamed(LogInScreen.routeName);
+                          context.go(Routes.logInScreen);
                         },
                         child: const Text(
                           'Login',
