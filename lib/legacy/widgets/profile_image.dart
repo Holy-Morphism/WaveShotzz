@@ -16,7 +16,7 @@ class ProfileImage extends StatelessWidget {
                     placeholder: const AssetImage(loadingImage),
                     image: NetworkImage(image!))
                 .image
-            : const AssetImage(defaultImage),
+            : const AssetImage(loadingImage),
       ),
     );
   }

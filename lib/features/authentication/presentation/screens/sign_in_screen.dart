@@ -104,7 +104,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         radius: 64,
                         backgroundImage: _image != null
                             ? MemoryImage(_image!)
-                            : const AssetImage(defaultImage) as ImageProvider),
+                            : const AssetImage(loadingImage) as ImageProvider),
                     Positioned(
                       bottom: -10,
                       left: 80,
