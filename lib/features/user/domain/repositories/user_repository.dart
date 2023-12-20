@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
 import 'package:dartz/dartz.dart';
-import 'package:kylipp/core/error/failure.dart';
-import 'package:kylipp/core/shared/entities/user_entity.dart';
+import 'package:waveshotzz/core/error/failure.dart';
+import 'package:waveshotzz/core/shared/entities/user_entity.dart';
 
 abstract class UserRepository {
   Future<Either<Failure, UserEntity>> getUser();

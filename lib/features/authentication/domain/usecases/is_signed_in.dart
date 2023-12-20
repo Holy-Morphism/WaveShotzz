@@ -1,4 +1,4 @@
-import 'package:kylipp/features/authentication/domain/repositories/authentication_repository.dart';
+import 'package:waveshotzz/features/authentication/domain/repositories/authentication_repository.dart';
 
 class IsSignedIn {
   final AuthenticationRepository _authenticationRepository;

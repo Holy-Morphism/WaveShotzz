@@ -2,9 +2,9 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:kylipp/legacy/firebase/auth.dart';
-import 'package:kylipp/legacy/models/user.dart';
-import 'package:kylipp/legacy/widgets/video_player_view.dart';
+import 'package:waveshotzz/legacy/firebase/auth.dart';
+import 'package:waveshotzz/legacy/models/user.dart';
+import 'package:waveshotzz/legacy/widgets/video_player_view.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../features/authentication/presentation/widgets/user_input.dart';

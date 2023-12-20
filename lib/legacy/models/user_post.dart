@@ -1,4 +1,4 @@
-import 'package:kylipp/legacy/models/post.dart';
+import 'package:waveshotzz/legacy/models/post.dart';
 
 import '../firebase/database.dart';
 

@@ -2,9 +2,9 @@ import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:kylipp/legacy/firebase/database.dart';
-import 'package:kylipp/legacy/firebase/storage.dart';
-import 'package:kylipp/legacy/models/user.dart' as model;
+import 'package:waveshotzz/legacy/firebase/database.dart';
+import 'package:waveshotzz/legacy/firebase/storage.dart';
+import 'package:waveshotzz/legacy/models/user.dart' as model;
 
 class AuthMethods {
   static final FirebaseAuth auth = FirebaseAuth.instance;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kylipp/legacy/providers/user_provider.dart';
-import 'package:kylipp/legacy/providers/users_provider.dart';
-import 'package:kylipp/legacy/widgets/drop_down_search.dart';
-import 'package:kylipp/legacy/widgets/profile_image.dart';
+import 'package:waveshotzz/legacy/providers/user_provider.dart';
+import 'package:waveshotzz/legacy/providers/users_provider.dart';
+import 'package:waveshotzz/legacy/widgets/drop_down_search.dart';
+import 'package:waveshotzz/legacy/widgets/profile_image.dart';
 import 'package:provider/provider.dart';
 
 import '../models/user.dart';

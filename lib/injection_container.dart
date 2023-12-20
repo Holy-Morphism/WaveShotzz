@@ -2,13 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get_it/get_it.dart';
-import 'package:kylipp/features/authentication/data/repositories/authentication_repository_implementation.dart';
-import 'package:kylipp/features/authentication/domain/repositories/authentication_repository.dart';
-import 'package:kylipp/features/authentication/domain/usecases/is_signed_in.dart';
-import 'package:kylipp/features/authentication/domain/usecases/log_in_user.dart';
-import 'package:kylipp/features/authentication/domain/usecases/sign_in_user.dart';
-import 'package:kylipp/features/authentication/domain/usecases/sign_out.dart';
-import 'package:kylipp/features/authentication/presentation/bloc/authentication_bloc.dart';
+import 'package:waveshotzz/features/authentication/data/repositories/authentication_repository_implementation.dart';
+import 'package:waveshotzz/features/authentication/domain/repositories/authentication_repository.dart';
+import 'package:waveshotzz/features/authentication/domain/usecases/is_signed_in.dart';
+import 'package:waveshotzz/features/authentication/domain/usecases/log_in_user.dart';
+import 'package:waveshotzz/features/authentication/domain/usecases/sign_in_user.dart';
+import 'package:waveshotzz/features/authentication/domain/usecases/sign_out.dart';
+import 'package:waveshotzz/features/authentication/presentation/bloc/authentication_bloc.dart';
 
 final GetIt locator = GetIt.instance;
 

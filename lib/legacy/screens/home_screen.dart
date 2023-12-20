@@ -2,14 +2,14 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:kylipp/core/constants/constants.dart';
-import 'package:kylipp/legacy/pages/connection.dart';
-import 'package:kylipp/legacy/pages/explore.dart';
-import 'package:kylipp/legacy/pages/home.dart';
-import 'package:kylipp/legacy/pages/profile.dart';
-import 'package:kylipp/legacy/screens/post_screen.dart';
-import 'package:kylipp/legacy/widgets/bottom_navbar.dart';
-import 'package:kylipp/legacy/widgets/drop_down_search.dart';
+import 'package:waveshotzz/core/constants/constants.dart';
+import 'package:waveshotzz/legacy/pages/connection.dart';
+import 'package:waveshotzz/legacy/pages/explore.dart';
+import 'package:waveshotzz/legacy/pages/home.dart';
+import 'package:waveshotzz/legacy/pages/profile.dart';
+import 'package:waveshotzz/legacy/screens/post_screen.dart';
+import 'package:waveshotzz/legacy/widgets/bottom_navbar.dart';
+import 'package:waveshotzz/legacy/widgets/drop_down_search.dart';
 
 import '../../utils/utils.dart';
 import 'messages_screen.dart';

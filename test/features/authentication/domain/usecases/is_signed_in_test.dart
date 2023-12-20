@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kylipp/features/authentication/domain/usecases/is_signed_in.dart';
+import 'package:waveshotzz/features/authentication/domain/usecases/is_signed_in.dart';
 import 'package:mockito/mockito.dart';
 
 import '../../helper/test_helper.mocks.dart';

@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:kylipp/core/error/failure.dart';
-import 'package:kylipp/features/user/domain/repositories/user_repository.dart';
+import 'package:waveshotzz/core/error/failure.dart';
+import 'package:waveshotzz/features/user/domain/repositories/user_repository.dart';
 
 class Unfollow {
   final UserRepository userRepository;

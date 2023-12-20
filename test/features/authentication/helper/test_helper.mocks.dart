@@ -7,16 +7,16 @@ import 'dart:async' as _i4;
 import 'dart:typed_data' as _i6;
 
 import 'package:dartz/dartz.dart' as _i2;
-import 'package:kylipp/core/error/failure.dart' as _i5;
-import 'package:kylipp/features/authentication/domain/repositories/authentication_repository.dart'
+import 'package:waveshotzz/core/error/failure.dart' as _i5;
+import 'package:waveshotzz/features/authentication/domain/repositories/authentication_repository.dart'
     as _i3;
-import 'package:kylipp/features/authentication/domain/usecases/is_signed_in.dart'
+import 'package:waveshotzz/features/authentication/domain/usecases/is_signed_in.dart'
     as _i7;
-import 'package:kylipp/features/authentication/domain/usecases/log_in_user.dart'
+import 'package:waveshotzz/features/authentication/domain/usecases/log_in_user.dart'
     as _i8;
-import 'package:kylipp/features/authentication/domain/usecases/sign_in_user.dart'
+import 'package:waveshotzz/features/authentication/domain/usecases/sign_in_user.dart'
     as _i9;
-import 'package:kylipp/features/authentication/domain/usecases/sign_out.dart'
+import 'package:waveshotzz/features/authentication/domain/usecases/sign_out.dart'
     as _i10;
 import 'package:mockito/mockito.dart' as _i1;
 

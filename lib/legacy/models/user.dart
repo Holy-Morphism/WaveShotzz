@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'dart:typed_data';
 
-import 'package:kylipp/legacy/models/post.dart';
+import 'package:waveshotzz/legacy/models/post.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
 import '../firebase/database.dart';

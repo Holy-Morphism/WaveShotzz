@@ -1,9 +1,9 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:kylipp/legacy/firebase/auth.dart';
-import 'package:kylipp/legacy/models/user_post.dart';
-import 'package:kylipp/legacy/models/post.dart';
+import 'package:waveshotzz/legacy/firebase/auth.dart';
+import 'package:waveshotzz/legacy/models/user_post.dart';
+import 'package:waveshotzz/legacy/models/post.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
 import '../models/user.dart';

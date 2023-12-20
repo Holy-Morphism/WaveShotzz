@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kylipp/legacy/screens/other_profile_screen.dart';
-import 'package:kylipp/legacy/widgets/profile_image.dart';
+import 'package:waveshotzz/legacy/screens/other_profile_screen.dart';
+import 'package:waveshotzz/legacy/widgets/profile_image.dart';
 
 import '../models/user.dart';
 

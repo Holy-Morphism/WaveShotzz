@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kylipp/legacy/models/user_post.dart';
-import 'package:kylipp/legacy/models/post.dart';
-import 'package:kylipp/legacy/models/user.dart';
+import 'package:waveshotzz/legacy/models/user_post.dart';
+import 'package:waveshotzz/legacy/models/post.dart';
+import 'package:waveshotzz/legacy/models/user.dart';
 
 import '../firebase/database.dart';
 

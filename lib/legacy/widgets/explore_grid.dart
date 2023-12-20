@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kylipp/legacy/models/user_post.dart';
-import 'package:kylipp/legacy/screens/explore_post_detail.dart';
-import 'package:kylipp/legacy/widgets/video_player_view.dart';
+import 'package:waveshotzz/legacy/models/user_post.dart';
+import 'package:waveshotzz/legacy/screens/explore_post_detail.dart';
+import 'package:waveshotzz/legacy/widgets/video_player_view.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../core/constants/constants.dart';

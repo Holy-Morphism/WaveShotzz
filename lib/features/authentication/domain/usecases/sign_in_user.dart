@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:dartz/dartz.dart';
-import 'package:kylipp/core/error/failure.dart';
+import 'package:waveshotzz/core/error/failure.dart';
 
 import '../repositories/authentication_repository.dart';
 

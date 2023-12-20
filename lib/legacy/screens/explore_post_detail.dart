@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kylipp/legacy/models/user_post.dart';
+import 'package:waveshotzz/legacy/models/user_post.dart';
 
-import 'package:kylipp/legacy/widgets/post.dart';
+import 'package:waveshotzz/legacy/widgets/post.dart';
 
 class PostDetails extends StatelessWidget {
   const PostDetails({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kylipp/legacy/models/user.dart';
-import 'package:kylipp/legacy/providers/user_provider.dart';
+import 'package:waveshotzz/legacy/models/user.dart';
+import 'package:waveshotzz/legacy/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../firebase/auth.dart';

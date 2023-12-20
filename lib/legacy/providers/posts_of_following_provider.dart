@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:kylipp/legacy/firebase/database.dart';
-import 'package:kylipp/legacy/models/user_post.dart';
+import 'package:waveshotzz/legacy/firebase/database.dart';
+import 'package:waveshotzz/legacy/models/user_post.dart';
 
 class PostOfFollowingProvider with ChangeNotifier {
   List<UserPost>? _posts;

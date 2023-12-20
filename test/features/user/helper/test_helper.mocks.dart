@@ -7,9 +7,9 @@ import 'dart:async' as _i4;
 import 'dart:typed_data' as _i7;
 
 import 'package:dartz/dartz.dart' as _i2;
-import 'package:kylipp/core/error/failure.dart' as _i5;
-import 'package:kylipp/core/shared/entities/user_entity.dart' as _i6;
-import 'package:kylipp/features/user/domain/repositories/user_repository.dart'
+import 'package:waveshotzz/core/error/failure.dart' as _i5;
+import 'package:waveshotzz/core/shared/entities/user_entity.dart' as _i6;
+import 'package:waveshotzz/features/user/domain/repositories/user_repository.dart'
     as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 

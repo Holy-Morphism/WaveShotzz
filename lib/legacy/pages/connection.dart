@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphview/GraphView.dart';
-import 'package:kylipp/legacy/providers/user_provider.dart';
+import 'package:waveshotzz/legacy/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../models/my_arrow_edge_renderer.dart';

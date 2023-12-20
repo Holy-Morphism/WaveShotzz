@@ -1,8 +1,8 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 
-import 'package:kylipp/legacy/models/user.dart';
-import 'package:kylipp/legacy/screens/chat_screen.dart';
+import 'package:waveshotzz/legacy/models/user.dart';
+import 'package:waveshotzz/legacy/screens/chat_screen.dart';
 
 import '../firebase/database.dart';
 import '../screens/other_profile_screen.dart';

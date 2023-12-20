@@ -1,4 +1,4 @@
-import 'package:kylipp/core/shared/entities/user_entity.dart';
+import 'package:waveshotzz/core/shared/entities/user_entity.dart';
 
 class UserModel extends UserEntity {
   const UserModel(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kylipp/core/constants/constants.dart';
+import 'package:waveshotzz/core/constants/constants.dart';
 
 class ProfileImage extends StatelessWidget {
   const ProfileImage({super.key, required this.image, this.size = 50});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
-import 'package:kylipp/legacy/firebase/database.dart';
-import 'package:kylipp/legacy/providers/user_provider.dart';
+import 'package:waveshotzz/legacy/firebase/database.dart';
+import 'package:waveshotzz/legacy/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 

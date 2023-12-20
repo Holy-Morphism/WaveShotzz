@@ -3,8 +3,8 @@ import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:firebase_storage_mocks/firebase_storage_mocks.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kylipp/core/error/failure.dart';
-import 'package:kylipp/features/authentication/data/repositories/authentication_repository_implementation.dart';
+import 'package:waveshotzz/core/error/failure.dart';
+import 'package:waveshotzz/features/authentication/data/repositories/authentication_repository_implementation.dart';
 import 'package:mock_exceptions/mock_exceptions.dart';
 
 void main() {

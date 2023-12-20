@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kylipp/legacy/models/user_post.dart';
-import 'package:kylipp/legacy/providers/posts_of_following_provider.dart';
-import 'package:kylipp/legacy/widgets/post.dart' as p;
+import 'package:waveshotzz/legacy/models/user_post.dart';
+import 'package:waveshotzz/legacy/providers/posts_of_following_provider.dart';
+import 'package:waveshotzz/legacy/widgets/post.dart' as p;
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
