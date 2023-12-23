@@ -13,9 +13,5 @@ final router = GoRouter(
       path: Routes.logInScreen,
       builder: (context, state) => const LogInScreen(),
     ),
-    GoRoute(
-      path: Routes.logInScreen,
-      builder: (context, state) => const LogInScreen(),
-    ),
   ],
 );

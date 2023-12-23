@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:waveshotzz/core/constants/constants.dart';
 import 'package:waveshotzz/features/authentication/presentation/bloc/authentication_event.dart';
+import 'package:waveshotzz/features/authentication/presentation/widgets/page_switch_button.dart';
 import 'package:waveshotzz/legacy/screens/home_screen.dart';
 import 'package:waveshotzz/features/authentication/presentation/widgets/user_input.dart';
 
@@ -10,6 +10,8 @@ import '../../../../config/router/routes.dart';
 import '../../../../utils/utils.dart';
 import '../bloc/authentication_bloc.dart';
 import '../bloc/authentication_state.dart';
+
+import '../widgets/authentication_button.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -55,6 +57,9 @@ class _LogInScreenState extends State<LogInScreen> {
             }
           },
           builder: (context, state) {
+            if (state is AuthenticationLoading) {
+              return const Center(child: CircularProgressIndicator());
+            }
             return Container(
               padding: const EdgeInsets.symmetric(horizontal: 32),
               width: double.infinity,
@@ -65,9 +70,6 @@ class _LogInScreenState extends State<LogInScreen> {
                     flex: 2,
                     child: Container(),
                   ),
-                  Container(
-                      margin: const EdgeInsets.symmetric(vertical: 30),
-                      child: Image.asset(logo)),
                   UserInput(
                     textEditingController: _email,
                     textInputType: TextInputType.emailAddress,
@@ -89,44 +91,19 @@ class _LogInScreenState extends State<LogInScreen> {
                   ),
                   SizedBox(
                     width: double.infinity,
-                    child: OutlinedButton(
+                    child: AuthenticationButton(
+                      title: 'Log In',
                       onPressed: login,
-                      style: OutlinedButton.styleFrom(
-                        backgroundColor: Colors.redAccent,
-                        side: const BorderSide(width: 2, color: Colors.grey),
-                      ),
-                      child: state is AuthenticationLoading
-                          ? const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 10),
-                              child: CircularProgressIndicator(
-                                color: Colors.grey,
-                              ),
-                            )
-                          : const Text(
-                              'Login',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
                     ),
                   ),
                   Flexible(
                     flex: 2,
                     child: Container(),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Don\'t have an account ?',
-                      ),
-                      TextButton(
-                          onPressed: () => context.go('/'),
-                          child: const Text(
-                            'Sign Up',
-                          ))
-                    ],
-                  )
+                  const PageSwitchButton(
+                      question: 'Don\'t have an account?',
+                      buttonText: 'Sign Up',
+                      switchPath: '/')
                 ],
               ),
             );
