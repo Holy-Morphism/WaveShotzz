@@ -34,8 +34,6 @@ Waveshotzz is a social networking app inspired by Instagram, showcasing clean ar
 
 ## Legacy Code
 
-The `legacy` folder contains code from previous versions of the application. This code follows the MVC (Model-View-Controller) architecture. While this code is no longer in active use, it is kept for reference and historical purposes. Please note that this code might not be up-to-date with the current application features and may lack recent bug fixes and improvements.## Legacy Code
-
 The `legacy` folder contains code from previous versions of the application. This code follows the MVC (Model-View-Controller) architecture. While this code is no longer in active use, it is kept for reference and historical purposes. Please note that this code might not be up-to-date with the current application features and may lack recent bug fixes and improvements.
 
 ## Prerequisites
