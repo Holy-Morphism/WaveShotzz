@@ -4,12 +4,12 @@ Waveshotzz is a social networking app inspired by Instagram, showcasing clean ar
 
 ## Features
 
-- Authentication: Sign in, sign up, and sign out functionality.
-- User Profile: View and interact with user profiles.
-- Social Interactions: Follow, unfollow, like, and upload posts.
-- Graph Visualization: Explore user networks in a graph.
-- Direct Messaging: Send and receive private messages.
-- Explore Page: Discover trending posts and users.
+- **Authentication**: Sign in, sign up, and sign out functionality.
+- **User Profile**: View and interact with user profiles.
+- **Social Interactions**: Follow, unfollow, like, and upload posts.
+- **Graph Visualization**: Explore user networks in a graph.
+- **Direct Messaging**: Send and receive private messages.
+- **Explore Page**: Discover trending posts and users.
 
 ## Getting Started
 
