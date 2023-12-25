@@ -1,6 +1,6 @@
-# Kylipp - Social Networking App
+# Waveshotzz - Social Networking App
 
-Kylipp is a social networking app inspired by Instagram, showcasing clean architecture and Bloc pattern implementation.
+Waveshotzz is a social networking app inspired by Instagram, showcasing clean architecture and Bloc pattern implementation.
 
 ## Features
 
@@ -8,6 +8,8 @@ Kylipp is a social networking app inspired by Instagram, showcasing clean archit
 - User Profile: View and interact with user profiles.
 - Social Interactions: Follow, unfollow, like, and upload posts.
 - Graph Visualization: Explore user networks in a graph.
+- Direct Messaging: Send and receive private messages.
+- Explore Page: Discover trending posts and users.
 
 ## Getting Started
 
@@ -26,7 +28,15 @@ Kylipp is a social networking app inspired by Instagram, showcasing clean archit
 - **features**:
   - **authentication**: User authentication feature.
   - **user**: User-related functionalities.
+  - **messaging**: Direct messaging feature.
+  - **explore**: Explore page feature.
 - **previous**: Legacy code from the MVC architecture.
+
+## Legacy Code
+
+The `legacy` folder contains code from previous versions of the application. This code follows the MVC (Model-View-Controller) architecture. While this code is no longer in active use, it is kept for reference and historical purposes. Please note that this code might not be up-to-date with the current application features and may lack recent bug fixes and improvements.## Legacy Code
+
+The `legacy` folder contains code from previous versions of the application. This code follows the MVC (Model-View-Controller) architecture. While this code is no longer in active use, it is kept for reference and historical purposes. Please note that this code might not be up-to-date with the current application features and may lack recent bug fixes and improvements.
 
 ## Prerequisites
 
