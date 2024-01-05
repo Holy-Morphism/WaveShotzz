@@ -15,5 +15,10 @@ final router = GoRouter(
       path: Routes.logInScreen,
       builder: (context, state) => const LogInScreen(),
     ),
+    GoRoute(
+      name: Routes.homeScreen,
+      path: Routes.homeScreen,
+      builder: (context, state) => const HomeScreen(),
+    ),
   ],
 );
