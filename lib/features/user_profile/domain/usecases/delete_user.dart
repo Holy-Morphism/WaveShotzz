@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/error/failure.dart';
-import '../repositories/user_repository.dart';
+import '../repositories/user_profile_repository.dart';
 
 class DeleteUser {
   final UserProfileRepository _userProfileRepository;

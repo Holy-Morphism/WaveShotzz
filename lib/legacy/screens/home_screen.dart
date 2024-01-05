@@ -2,7 +2,6 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:waveshotzz/core/constants/constants.dart';
 import 'package:waveshotzz/legacy/pages/connection.dart';
 import 'package:waveshotzz/legacy/pages/explore.dart';
 import 'package:waveshotzz/legacy/pages/home.dart';
@@ -123,11 +122,6 @@ class _HomeScreenState extends State<HomeScreen> {
           bottomNavigationBar: BottomNavBar(index: index, setIndex: setIndex),
           appBar: 0 == index
               ? AppBar(
-                  title: Image.asset(
-                    logo,
-                    fit: BoxFit.cover,
-                    height: 30,
-                  ),
                   actions: [
                     IconButton(
                         onPressed: () {

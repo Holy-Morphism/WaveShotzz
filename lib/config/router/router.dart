@@ -6,10 +6,12 @@ import 'package:waveshotzz/features/authentication/presentation/screens/sign_in_
 final router = GoRouter(
   routes: [
     GoRoute(
+      name: Routes.signInScreen,
       path: '/',
       builder: (context, state) => const SignInScreen(),
     ),
     GoRoute(
+      name: Routes.logInScreen,
       path: Routes.logInScreen,
       builder: (context, state) => const LogInScreen(),
     ),
