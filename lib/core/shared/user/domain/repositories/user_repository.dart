@@ -9,8 +9,7 @@ abstract class UserRepository {
       {required Uint8List post, required String caption});
   Future<Either<Failure, void>> follow({required String uid});
   Future<Either<Failure, void>> unfollow({required String uid});
-  Future<Either<Failure, void>> likePhoto(
-      {required String uid, required DateTime dateTime});
+  Future<Either<Failure, void>> likePhoto({required String uid});
   Future<Either<Failure, void>> unlikePhoto({required String uid});
   Future<Either<Failure, void>> commentPhoto(
       {required String uid,

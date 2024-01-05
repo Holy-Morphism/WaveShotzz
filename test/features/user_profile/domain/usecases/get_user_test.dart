@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:waveshotzz/core/error/failure.dart';
-import 'package:waveshotzz/core/shared/user/domain/entities/user_entity.dart';
+import 'package:waveshotzz/features/user_profile/domain/entities/user_profile_entity.dart';
 import 'package:waveshotzz/features/user_profile/domain/usecases/get_user.dart';
 import 'package:mockito/mockito.dart';
 
@@ -16,19 +16,21 @@ void main() {
     getUser = GetUser(mockUserProfileRepository);
   });
 
-  const user = UserEntity(
-      uid: '123456789',
-      username: 'user',
-      email: 'user@gmail.com',
-      password: 'password123');
+  const user = UserProfileEntity(
+    name: 'user',
+    email: 'user@gmail.com',
+    profilePicture: 'photoUrl',
+    posts: [],
+  );
 
   const message = 'Unable to get user data';
 
   group('Get User data', () {
     test('Get user data successful', () async {
       //arrange
-      when(mockUserProfileRepository.getUser())
-          .thenAnswer((_) async => const Right(user));
+      when(mockUserProfileRepository.getUser()).thenAnswer((_) async* {
+        yield const Right(user);
+      });
 
       //act
       final result = await getUser();
@@ -39,11 +41,12 @@ void main() {
 
     test('Get user data unsuccessful', () async {
       //arrange
-      when(mockUserProfileRepository.getUser())
-          .thenAnswer((_) async => left(const GetUserFailure(message)));
+      when(mockUserProfileRepository.getUser()).thenAnswer((_) async* {
+        yield left(const GetUserFailure(message));
+      });
 
       //act
-      final result = await getUser();
+      final result = getUser();
 
       //asset
       expect(result, equals(const Left(GetUserFailure(message))));

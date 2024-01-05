@@ -98,7 +98,7 @@ void main() {
                 password: password,
                 bio: bio,
                 image: image))
-            .thenAnswer((_) async => const Right(null));
+            .thenAnswer((_) async => const Right(username));
         return authenticationBloc;
       },
       act: (bloc) => bloc.add(AuthenticationSignIn(

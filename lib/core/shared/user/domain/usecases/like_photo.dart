@@ -9,6 +9,6 @@ class LikePhoto {
 
   Future<Either<Failure, void>> call(
       {required String uid, required DateTime dateTime}) {
-    return userRepository.likePhoto(uid: uid, dateTime: dateTime);
+    return userRepository.likePhoto(uid: uid);
   }
 }

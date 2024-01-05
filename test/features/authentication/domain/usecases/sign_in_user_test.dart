@@ -24,14 +24,14 @@ void main() {
       //arrange
       when(mockAuthenticationRepository.signInUser(
               username: username, email: email, password: password))
-          .thenAnswer((_) async => const Right(null));
+          .thenAnswer((_) async => const Right(username));
 
       //act
       final result = await signInUser(
           username: username, email: email, password: password);
 
       //assert
-      expect(result, const Right(null));
+      expect(result, const Right(username));
     });
 
     const message = 'unable to sign in';

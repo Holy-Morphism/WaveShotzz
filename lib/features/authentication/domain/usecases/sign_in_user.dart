@@ -9,7 +9,7 @@ class SignInUser {
   final AuthenticationRepository _authenticationRepository;
   SignInUser(this._authenticationRepository);
 
-  Future<Either<Failure, void>> call({
+  Future<Either<Failure, String>> call({
     required String username,
     required String email,
     required String password,

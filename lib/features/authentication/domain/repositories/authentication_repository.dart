@@ -5,7 +5,7 @@ import 'package:dartz/dartz.dart';
 import '../../../../core/error/failure.dart';
 
 abstract class AuthenticationRepository {
-  Future<Either<Failure, void>> signInUser(
+  Future<Either<Failure, String>> signInUser(
       {required String username,
       required String email,
       required String password,

@@ -57,7 +57,7 @@ void main() {
           password: 'password123');
 
       //assert
-      expect(result, const Right(null));
+      expect(result, const Right('username'));
     });
 
     test('Sign in user unsucccessfull', () async {

@@ -53,7 +53,7 @@ class MockAuthenticationRepository extends _i1.Mock
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, void>> signInUser({
+  _i4.Future<_i2.Either<_i5.Failure, String>> signInUser({
     required String? username,
     required String? email,
     required String? password,
@@ -72,8 +72,8 @@ class MockAuthenticationRepository extends _i1.Mock
             #bio: bio,
           },
         ),
-        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
-            _FakeEither_0<_i5.Failure, void>(
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, String>>.value(
+            _FakeEither_0<_i5.Failure, String>(
           this,
           Invocation.method(
             #signInUser,
@@ -87,7 +87,7 @@ class MockAuthenticationRepository extends _i1.Mock
             },
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+      ) as _i4.Future<_i2.Either<_i5.Failure, String>>);
 
   @override
   bool isSignedIn() => (super.noSuchMethod(
@@ -201,7 +201,7 @@ class MockSignInUser extends _i1.Mock implements _i9.SignInUser {
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, void>> call({
+  _i4.Future<_i2.Either<_i5.Failure, String>> call({
     required String? username,
     required String? email,
     required String? password,
@@ -220,8 +220,8 @@ class MockSignInUser extends _i1.Mock implements _i9.SignInUser {
             #bio: bio,
           },
         ),
-        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
-            _FakeEither_0<_i5.Failure, void>(
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, String>>.value(
+            _FakeEither_0<_i5.Failure, String>(
           this,
           Invocation.method(
             #call,
@@ -235,7 +235,7 @@ class MockSignInUser extends _i1.Mock implements _i9.SignInUser {
             },
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+      ) as _i4.Future<_i2.Either<_i5.Failure, String>>);
 }
 
 /// A class which mocks [SignOut].

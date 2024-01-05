@@ -110,18 +110,12 @@ class MockUserRepository extends _i1.Mock implements _i3.UserRepository {
       ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, void>> likePhoto({
-    required String? uid,
-    required DateTime? dateTime,
-  }) =>
+  _i4.Future<_i2.Either<_i5.Failure, void>> likePhoto({required String? uid}) =>
       (super.noSuchMethod(
         Invocation.method(
           #likePhoto,
           [],
-          {
-            #uid: uid,
-            #dateTime: dateTime,
-          },
+          {#uid: uid},
         ),
         returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
             _FakeEither_0<_i5.Failure, void>(
@@ -129,10 +123,7 @@ class MockUserRepository extends _i1.Mock implements _i3.UserRepository {
           Invocation.method(
             #likePhoto,
             [],
-            {
-              #uid: uid,
-              #dateTime: dateTime,
-            },
+            {#uid: uid},
           ),
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, void>>);

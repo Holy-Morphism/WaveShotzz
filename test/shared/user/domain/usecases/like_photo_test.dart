@@ -22,7 +22,7 @@ void main() {
   group('Follow user test', () {
     test('unFollow user successful', () async {
       //arrange
-      when(mockUserRepository.likePhoto(uid: uid, dateTime: dateTime))
+      when(mockUserRepository.likePhoto(uid: uid))
           .thenAnswer((_) async => const Right(null));
       //act
       final result = await likePhoto(uid: uid, dateTime: dateTime);
@@ -33,7 +33,7 @@ void main() {
 
     test('unfollow user unsuccessful', () async {
       //arrange
-      when(mockUserRepository.likePhoto(uid: uid, dateTime: dateTime))
+      when(mockUserRepository.likePhoto(uid: uid))
           .thenAnswer((_) async => const Left(GeneralError(message)));
       //act
       final result = await likePhoto(uid: uid, dateTime: dateTime);

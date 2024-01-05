@@ -36,7 +36,7 @@ class AuthenticationRepositoryImplementation
   }
 
   @override
-  Future<Either<Failure, void>> signInUser(
+  Future<Either<Failure, String>> signInUser(
       {required String username,
       required String email,
       required String password,
@@ -61,7 +61,7 @@ class AuthenticationRepositoryImplementation
           photoUrl: url);
 
       await _database.collection('users').doc(uid).set(user.toJson());
-      return const Right(null);
+      return Right(username);
     } catch (e) {
       return Left(SignInFailure(e.toString()));
     }
