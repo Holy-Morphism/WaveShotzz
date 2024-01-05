@@ -1,22 +1,22 @@
 import 'package:waveshotzz/features/user_profile/domain/enitities/user_profile_entity.dart';
 
-class UserProfileMode extends UserProfileEntity {
-  const UserProfileMode(
+class UserProfileModel extends UserProfileEntity {
+  const UserProfileModel(
       {required super.name,
-      required super.profilePicture,
+      required super.profilePictureUrl,
       required super.posts});
 
-  factory UserProfileMode.fromJson(Map<String, dynamic> json) {
-    return UserProfileMode(
+  factory UserProfileModel.fromJson(Map<String, dynamic> json) {
+    return UserProfileModel(
       name: json['name'],
-      profilePicture: json['profilePicture'],
+      profilePictureUrl: json['profilePicture'],
       posts: json['posts'],
     );
   }
   Map<String, dynamic> toJson() {
     return {
       'name': name,
-      'profilePicture': profilePicture,
+      'profilePictureUrl': profilePictureUrl,
       'posts': posts,
     };
   }

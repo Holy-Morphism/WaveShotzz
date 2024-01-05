@@ -4,8 +4,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 import 'package:waveshotzz/core/error/failure.dart';
+import 'package:waveshotzz/features/user_profile/data/models/user_profile_model.dart';
 
 import 'package:waveshotzz/features/user_profile/domain/enitities/user_profile_entity.dart';
+import 'package:waveshotzz/legacy/models/post.dart';
 
 import '../../domain/repositories/user_profile_repository.dart';
 
@@ -13,12 +15,49 @@ class UserProfileRepositoryImplementation implements UserProfileRepository {
   final FirebaseAuth _firebaseAuth;
   final FirebaseFirestore _firebaseFirestore;
   final FirebaseStorage _firebaseStorage;
+
+  UserProfileRepositoryImplementation(
+      this._firebaseAuth, this._firebaseFirestore, this._firebaseStorage);
+
   @override
-  Future<Either<Failure, void>> deleteUser() {
-    // TODO: implement deleteUser
-    throw UnimplementedError();
+  Future<Either<Failure, void>> deleteUser() async {
+    try {
+      _firebaseStorage.ref('users/${_firebaseAuth.currentUser!.uid}').delete();
+      return _firebaseFirestore
+          .collection('users')
+          .doc(_firebaseAuth.currentUser!.uid)
+          .delete()
+          .then((value) => const Right(null));
+    } catch (e) {
+      return Left(GetUserFailure(e.toString()));
+    }
   }
 
   @override
-  Stream<Either<Failure, UserProfileEntity>> getUser() {}
+  Stream<Either<Failure, UserProfileEntity>> getUser() async* {
+    try {
+      final userStream = _firebaseFirestore
+          .collection('users')
+          .doc(_firebaseAuth.currentUser!.uid)
+          .snapshots();
+
+      final Stream<List<Post>> postStream = _firebaseFirestore
+          .collection('users')
+          .doc(_firebaseAuth.currentUser!.uid)
+          .collection('posts')
+          .snapshots()
+          .map((event) =>
+              event.docs.map((e) => Post.fromJson(e.data())).toList());
+
+      await for (var user in userStream) {
+        await for (var posts in postStream) {
+          final Map<String, dynamic> data = user.data()!;
+          data.addAll({'posts': posts});
+          yield (Right(UserProfileModel.fromJson(data)));
+        }
+      }
+    } catch (e) {
+      yield Left(GetUserFailure(e.toString()));
+    }
+  }
 }
