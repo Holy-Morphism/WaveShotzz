@@ -5,15 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:waveshotzz/config/router/routes.dart';
+import 'package:waveshotzz/core/constants/constants.dart';
 import 'package:waveshotzz/features/authentication/presentation/bloc/authentication_bloc.dart';
 import 'package:waveshotzz/features/authentication/presentation/bloc/authentication_event.dart';
-import 'package:waveshotzz/features/authentication/presentation/widgets/authentication_button.dart';
-import 'package:waveshotzz/features/authentication/presentation/widgets/page_switch_button.dart';
-import 'package:waveshotzz/features/authentication/presentation/widgets/profile_image.dart';
 import 'package:waveshotzz/legacy/screens/home_screen.dart';
+import 'package:waveshotzz/utils/utils.dart';
 
-import '../../../../utils/utils.dart';
-import '../bloc/authentication_state.dart';
 import '../widgets/user_input.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -39,7 +36,7 @@ class _SignInScreenState extends State<SignInScreen> {
     super.dispose();
   }
 
-  void _message(String content) {
+  void message(String content) {
     showSnackBar(context, content);
   }
 
@@ -69,80 +66,6 @@ class _SignInScreenState extends State<SignInScreen> {
         backgroundColor: Colors.transparent,
       ),
       body: SafeArea(
-<<<<<<< HEAD
-        child: BlocConsumer<AuthenticationBloc, AuthenticationState>(
-          listener: (context, state) {
-            if (state is AuthenticationFailed) {
-              _message(state.error);
-            }
-            if (state is AuthenticationSuccess) {
-              _message('Welcome');
-              context.go(Routes.homeScreen);
-            }
-          },
-          builder: (context, state) {
-            if (state is AuthenticationLoading) {
-              return const Center(child: CircularProgressIndicator());
-            }
-
-            return SingleChildScrollView(
-              child: Container(
-                margin: const EdgeInsets.all(30),
-                width: double.infinity,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ProfileImageSelector(
-                      image: _image,
-                      chooseImage: chooseImage,
-                    ),
-                    const SizedBox(height: 24),
-                    UserInput(
-                      textEditingController: _username,
-                      textInputType: TextInputType.text,
-                      hintText: 'Enter your username',
-                      label: 'Username',
-                    ),
-                    const SizedBox(height: 24),
-                    UserInput(
-                      textEditingController: _email,
-                      textInputType: TextInputType.emailAddress,
-                      hintText: 'Enter your Email',
-                      label: 'Email',
-                    ),
-                    const SizedBox(height: 24),
-                    UserInput(
-                      textEditingController: _password,
-                      textInputType: TextInputType.text,
-                      hintText: 'Enter your Password',
-                      label: 'Password',
-                      isPass: true,
-                    ),
-                    const SizedBox(height: 24),
-                    UserInput(
-                      textEditingController: _bio,
-                      textInputType: TextInputType.text,
-                      hintText: 'Enter your Bio',
-                      label: 'Bio',
-                    ),
-                    const SizedBox(height: 24),
-                    SizedBox(
-                        width: double.infinity,
-                        child: AuthenticationButton(
-                            title: 'Sign Up', onPressed: _signUp)),
-                    const SizedBox(height: 16),
-                    const PageSwitchButton(
-                      question: 'Already have an account?',
-                      buttonText: 'Login',
-                      switchPath: Routes.logInScreen,
-                    ),
-                    const SizedBox(height: 16),
-                  ],
-                ),
-              ),
-            );
-          },
-=======
         child: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -151,10 +74,6 @@ class _SignInScreenState extends State<SignInScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 16),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  child: Image.asset(logo),
-                ),
                 const SizedBox(height: 16),
                 Stack(
                   children: [
@@ -162,7 +81,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         radius: 64,
                         backgroundImage: _image != null
                             ? MemoryImage(_image!)
-                            : const AssetImage(defaultImage) as ImageProvider),
+                            : const AssetImage(loadingImage) as ImageProvider),
                     Positioned(
                       bottom: -10,
                       left: 80,
@@ -214,19 +133,12 @@ class _SignInScreenState extends State<SignInScreen> {
                       backgroundColor: Colors.red,
                       side: const BorderSide(width: 2, color: Colors.white),
                     ),
-                    child: _isloading
-                        ? const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 10),
-                            child: CircularProgressIndicator(
-                              color: Colors.grey,
-                            ),
-                          )
-                        : const Text(
-                            'Sign Up',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
+                    child: const Text(
+                      'Sign Up',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -249,7 +161,6 @@ class _SignInScreenState extends State<SignInScreen> {
               ],
             ),
           ),
->>>>>>> 4376f40 (login,signup routing added)
         ),
       ),
     );
