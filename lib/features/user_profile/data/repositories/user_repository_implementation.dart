@@ -8,7 +8,10 @@ import '../../domain/repositories/user_repository.dart';
 
 class UserProfileRepositoryImplementation implements UserProfileRepository {
   @override
-  Stream<Either<Failure, UserProfileEntity>> getUser() {
-    return const Stream.empty();
+  Stream<Either<Failure, UserProfileEntity>> getUser() {}
+
+  @override
+  Future<Either<Failure, void>> deleteUser() {
+    throw UnimplementedError();
   }
 }
