@@ -4,4 +4,5 @@ import 'package:waveshotzz/core/shared/user/domain/entities/user_entity.dart';
 
 abstract class UserProfileRepository {
   Future<Either<Failure, UserEntity>> getUser();
+  Future<Either<Failure, void>> deleteUser();
 }
