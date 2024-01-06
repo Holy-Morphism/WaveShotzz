@@ -42,7 +42,7 @@ void main() {
       fakeFirebaseFirestore
           .collection('users')
           .doc(mockFirebaseAuth.currentUser!.uid)
-          .set(user.toJson());
+          .set({'name': user.name, 'profileUrl': user.profilePictureUrl});
       final Reference path = mockFirebaseStorage
           .ref('${mockFirebaseAuth.currentUser!.uid}$picPath');
       await path.putData(Uint8List.fromList([1, 2, 3, 4, 5]));
@@ -62,7 +62,7 @@ void main() {
       fakeFirebaseFirestore
           .collection('comments')
           .doc(mockFirebaseAuth.currentUser!.uid)
-          .set(user.toJson());
+          .set({'name': user.name, 'profileUrl': user.profilePictureUrl});
 
       //act
       final result = userProfileRepositoryImplementation.getUser();
@@ -79,7 +79,7 @@ void main() {
       fakeFirebaseFirestore
           .collection('users')
           .doc(mockFirebaseAuth.currentUser!.uid)
-          .set(user.toJson());
+          .set({'name': user.name, 'profileUrl': user.profilePictureUrl});
 
       //act
       final result = userProfileRepositoryImplementation.deleteUser();
@@ -93,7 +93,7 @@ void main() {
       fakeFirebaseFirestore
           .collection('comments')
           .doc(mockFirebaseAuth.currentUser!.uid)
-          .set(user.toJson());
+          .set({'name': user.name, 'profileUrl': user.profilePictureUrl});
 
       //act
       final result = userProfileRepositoryImplementation.deleteUser();

@@ -34,21 +34,22 @@ void main() {
       //act
       final result = getUser();
 
-      //asset
-      expect(result, equals(const Right(user)));
+      //assert
+      await expectLater(result, emitsInOrder([const Right(user)]));
     });
 
     test('Get user data unsuccessful', () async {
       //arrange
       when(mockUserProfileRepository.getUser()).thenAnswer((_) async* {
-        yield left(const GetUserFailure(message));
+        yield const Left(GetUserFailure(message));
       });
 
       //act
       final result = getUser();
 
-      //asset
-      expect(result, equals(const Left(GetUserFailure(message))));
+      //assert
+      await expectLater(
+          result, emitsInOrder([const Left(GetUserFailure(message))]));
     });
   });
 }

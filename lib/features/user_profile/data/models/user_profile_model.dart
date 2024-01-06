@@ -1,3 +1,4 @@
+import 'package:waveshotzz/core/shared/user/domain/entities/post_entity.dart';
 import 'package:waveshotzz/features/user_profile/domain/entities/user_profile_entity.dart';
 
 class UserProfileModel extends UserProfileEntity {
@@ -8,16 +9,9 @@ class UserProfileModel extends UserProfileEntity {
 
   factory UserProfileModel.fromJson(Map<String, dynamic> json) {
     return UserProfileModel(
-      name: json['name'],
-      profilePictureUrl: json['profilePicture'],
-      posts: json['posts'],
+      name: json['name'] ?? '',
+      profilePictureUrl: json['profilePicture'] ?? '',
+      posts: json['posts'] ?? <PostEntity>[],
     );
-  }
-  Map<String, dynamic> toJson() {
-    return {
-      'name': name,
-      'profilePictureUrl': profilePictureUrl,
-      'posts': posts,
-    };
   }
 }

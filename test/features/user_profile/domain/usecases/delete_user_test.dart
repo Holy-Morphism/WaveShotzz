@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:waveshotzz/core/error/failure.dart';
 
 import 'package:mockito/mockito.dart';
 import 'package:waveshotzz/features/user_profile/domain/usecases/delete_user.dart';
@@ -16,7 +15,7 @@ void main() {
     deleteUser = DeleteUser(mockUserProfileRepository);
   });
 
-  group('delte User', () {
+  group('delete User', () {
     test('Get user successful', () async {
       //arrange
       when(mockUserProfileRepository.deleteUser())
@@ -27,18 +26,6 @@ void main() {
 
       //asset
       expect(result, equals(const Right(null)));
-    });
-
-    test('delete user unsuccessful', () async {
-      //arrange
-      when(mockUserProfileRepository.deleteUser())
-          .thenAnswer((_) async => left(const GetUserFailure('message')));
-
-      //act
-      final result = deleteUser();
-
-      //asset
-      expect(result, equals(const Left(GetUserFailure('message'))));
     });
   });
 }

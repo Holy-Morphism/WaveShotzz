@@ -3,7 +3,7 @@ import 'package:waveshotzz/features/user_profile/domain/entities/user_profile_en
 
 abstract class UserProfileState extends Equatable {}
 
-class UserProfileInitial implements UserProfileState {
+class UserProfileInitial extends UserProfileState {
   @override
   List<Object> get props => [];
 
@@ -11,7 +11,7 @@ class UserProfileInitial implements UserProfileState {
   bool get stringify => true;
 }
 
-class UserProfileLoading implements UserProfileState {
+class UserProfileLoading extends UserProfileState {
   @override
   List<Object> get props => [];
 
@@ -19,7 +19,7 @@ class UserProfileLoading implements UserProfileState {
   bool get stringify => true;
 }
 
-class UserProfileLoaded implements UserProfileState {
+class UserProfileLoaded extends UserProfileState {
   final UserProfileEntity user;
   UserProfileLoaded(this.user);
   @override

@@ -2,18 +2,12 @@ import 'package:equatable/equatable.dart';
 
 abstract class UserProfileEvent extends Equatable {}
 
-class GetUserProfileEvent implements UserProfileEvent {
+class GetUserProfileEvent extends UserProfileEvent {
   @override
   List<Object> get props => [];
-
-  @override
-  bool get stringify => true;
 }
 
-class DeleteUserProfile implements UserProfileEvent {
+class DeleteUserProfile extends UserProfileEvent {
   @override
   List<Object> get props => [];
-
-  @override
-  bool get stringify => true;
 }

@@ -13,7 +13,6 @@ import '../../helper/test_helper.mocks.dart';
 void main() {
   late MockGetUser mockGetUser;
   late MockDeleteUser mockDeleteUser;
-
   late UserProfileBloc userProfileBloc;
 
   setUp(() {

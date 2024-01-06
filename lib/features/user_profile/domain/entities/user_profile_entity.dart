@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../../core/shared/user/domain/enities/post_entity.dart';
+import '../../../../core/shared/user/domain/entities/post_entity.dart';
 
 class UserProfileEntity extends Equatable {
   final String name;

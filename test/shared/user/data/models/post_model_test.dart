@@ -1,6 +1,8 @@
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:waveshotzz/core/shared/user/data/models/comment_model.dart';
+import 'package:waveshotzz/core/shared/user/data/models/post_model.dart';
 import 'package:waveshotzz/core/shared/user/domain/entities/post_entity.dart';
 
 void main() {
@@ -12,11 +14,10 @@ void main() {
     date: date,
   );
   final post = PostModel(
-    url: '//picture',
+    url: 'url',
     caption: 'caption',
     date: date,
     likes: 0,
-    comments: [],
   );
 
   late FakeFirebaseFirestore database;
@@ -48,13 +49,6 @@ void main() {
       //act
       final snapshot = await database.collection('users').doc(uid).get();
       PostModel result = PostModel.fromJson(snapshot.data()!);
-      result.comments = await database
-          .collection('users')
-          .doc(uid)
-          .collection('comments')
-          .get()
-          .then((value) =>
-              value.docs.map((e) => CommentModel.fromJson(e.data())).toList());
 
       //assert
       expect(result, equals(comment));
