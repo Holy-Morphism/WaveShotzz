@@ -4,10 +4,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 import 'package:waveshotzz/core/error/failure.dart';
+import 'package:waveshotzz/core/shared/user/data/models/post_model.dart';
+import 'package:waveshotzz/core/shared/user/domain/entities/post_entity.dart';
 import 'package:waveshotzz/features/user_profile/data/models/user_profile_model.dart';
 
 import 'package:waveshotzz/features/user_profile/domain/entities/user_profile_entity.dart';
-import 'package:waveshotzz/legacy/models/post.dart';
 
 import '../../domain/repositories/user_profile_repository.dart';
 
@@ -29,7 +30,7 @@ class UserProfileRepositoryImplementation implements UserProfileRepository {
           .delete()
           .then((value) => const Right(null));
     } catch (e) {
-      return Left(GetUserFailure(e.toString()));
+      return const Left(RandomFailure('Failed to Delete user'));
     }
   }
 
@@ -41,13 +42,13 @@ class UserProfileRepositoryImplementation implements UserProfileRepository {
           .doc(_firebaseAuth.currentUser!.uid)
           .snapshots();
 
-      final Stream<List<Post>> postStream = _firebaseFirestore
+      final Stream<List<PostEntity>> postStream = _firebaseFirestore
           .collection('users')
           .doc(_firebaseAuth.currentUser!.uid)
           .collection('posts')
           .snapshots()
           .map((event) =>
-              event.docs.map((e) => Post.fromJson(e.data())).toList());
+              event.docs.map((e) => PostModel.fromJson(e.data())).toList());
 
       await for (var user in userStream) {
         await for (var posts in postStream) {
@@ -57,7 +58,7 @@ class UserProfileRepositoryImplementation implements UserProfileRepository {
         }
       }
     } catch (e) {
-      yield Left(GetUserFailure(e.toString()));
+      yield const Left(RandomFailure('failed to get user data'));
     }
   }
 }

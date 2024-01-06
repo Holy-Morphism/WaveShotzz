@@ -9,12 +9,12 @@ class UserProfileBloc extends Bloc<UserProfileEvent, UserProfileState> {
   final GetUser getUser;
   final DeleteUser deleteUser;
   UserProfileBloc(this.getUser, this.deleteUser) : super(UserProfileInitial()) {
-    on<GetUserProfileEvent>((event, emit) {
+    on<GetUserProfileEvent>((event, emit) async {
       emit(UserProfileLoading());
-      getUser().listen((event) {
-        event.fold((l) => emit(UserProfileError(l.message)),
+      await for (var user in getUser()) {
+        user.fold((l) => emit(UserProfileError(l.message)),
             (r) => emit(UserProfileLoaded(r)));
-      });
+      }
     });
     on<DeleteUserProfile>((event, emit) {
       emit(UserProfileLoading());

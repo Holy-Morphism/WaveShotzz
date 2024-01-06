@@ -9,8 +9,8 @@ class UserProfileModel extends UserProfileEntity {
 
   factory UserProfileModel.fromJson(Map<String, dynamic> json) {
     return UserProfileModel(
-      name: json['name'] ?? '',
-      profilePictureUrl: json['profilePicture'] ?? '',
+      name: json['username'] ?? '',
+      profilePictureUrl: json['profilePictureUrl'] ?? '',
       posts: json['posts'] ?? <PostEntity>[],
     );
   }

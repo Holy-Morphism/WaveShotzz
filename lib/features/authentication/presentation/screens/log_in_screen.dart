@@ -53,7 +53,7 @@ class _LogInScreenState extends State<LogInScreen> {
             }
             if (state is AuthenticationSuccess) {
               _message('Welcome');
-              context.go(Routes.homeScreen);
+              context.go(Routes.userProfileScreen);
             }
           },
           builder: (context, state) {

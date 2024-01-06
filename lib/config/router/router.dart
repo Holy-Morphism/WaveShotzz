@@ -1,25 +1,47 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:waveshotzz/config/router/routes.dart';
+import 'package:waveshotzz/features/authentication/presentation/bloc/authentication_bloc.dart';
 import 'package:waveshotzz/features/authentication/presentation/screens/log_in_screen.dart';
 import 'package:waveshotzz/features/authentication/presentation/screens/sign_in_screen.dart';
+import 'package:waveshotzz/features/user_profile/presentation/bloc/user_profile_bloc/user_profile_bloc.dart';
+import 'package:waveshotzz/features/user_profile/presentation/bloc/user_profile_bloc/user_profile_event.dart';
 import 'package:waveshotzz/features/user_profile/presentation/screens/user_profile_screen.dart';
+import 'package:waveshotzz/injection_container.dart';
 
 final router = GoRouter(
+  initialLocation: '/',
   routes: [
     GoRoute(
-      name: Routes.signInScreen,
-      path: '/',
-      builder: (context, state) => const SignInScreen(),
-    ),
-    GoRoute(
-      name: Routes.logInScreen,
       path: Routes.logInScreen,
-      builder: (context, state) => const LogInScreen(),
+      builder: (context, state) => BlocProvider<AuthenticationBloc>(
+          create: (context) => locator<AuthenticationBloc>(),
+          child: const SignInScreen()),
     ),
     GoRoute(
-      name: Routes.homeScreen,
-      path: Routes.homeScreen,
-      builder: (context, state) => const UserProfileScreen(),
+      path: Routes.logInScreen,
+      builder: (context, state) => BlocProvider<AuthenticationBloc>(
+          create: (context) => locator<AuthenticationBloc>(),
+          child: const LogInScreen()),
+    ),
+    GoRoute(
+      path: Routes.userProfileScreen,
+      builder: (context, state) => BlocProvider<UserProfileBloc>(
+        create: (context) =>
+            locator<UserProfileBloc>()..add(GetUserProfileEvent()),
+        child: const UserProfileScreen(),
+      ),
     ),
   ],
+  redirect: (context, state) {
+    // Check if the user is already signed in
+    if (locator<FirebaseAuth>().currentUser != null) {
+      // If the user is signed in, redirect them to the UserProfileScreen
+      return Routes.userProfileScreen;
+    } else {
+      // If the user is not signed in, redirect them to the SignInScreen
+      return Routes.signInScreen;
+    }
+  },
 );

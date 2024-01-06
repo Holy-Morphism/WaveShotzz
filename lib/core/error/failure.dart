@@ -26,8 +26,8 @@ class SignOutFailure extends Failure {
   const SignOutFailure(super.message);
 }
 
-class GetUserFailure extends Failure {
-  const GetUserFailure(super.message);
+class RandomFailure extends Failure {
+  const RandomFailure(super.message);
 }
 
 class GeneralError extends Failure {

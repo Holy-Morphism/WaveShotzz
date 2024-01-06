@@ -29,7 +29,7 @@ class UserProfileLoaded extends UserProfileState {
   bool get stringify => true;
 }
 
-class UserProfileError implements UserProfileState {
+class UserProfileError extends UserProfileState {
   final String message;
   UserProfileError(this.message);
   @override

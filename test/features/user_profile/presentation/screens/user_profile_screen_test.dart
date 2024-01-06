@@ -2,7 +2,9 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:network_image_mock/network_image_mock.dart';
+
 import 'package:waveshotzz/features/user_profile/domain/entities/user_profile_entity.dart';
 import 'package:waveshotzz/features/user_profile/presentation/bloc/user_profile_bloc/user_profile_bloc.dart';
 import 'package:waveshotzz/features/user_profile/presentation/bloc/user_profile_bloc/user_profile_event.dart';
@@ -22,11 +24,13 @@ void main() {
   late MockUserProfileBloc mockUserProfileBloc;
 
   setUp(() {
+    TestWidgetsFlutterBinding.ensureInitialized();
+
     mockUserProfileBloc = MockUserProfileBloc();
   });
 
   Widget makeTestableWidget(Widget child) {
-    return BlocProvider<MockUserProfileBloc>(
+    return BlocProvider<UserProfileBloc>(
       create: (context) => mockUserProfileBloc,
       child: MaterialApp(
         home: child,
@@ -36,8 +40,7 @@ void main() {
 
   testWidgets('user profile screen intial state', (widgetTester) async {
     //arrange
-    when(() => mockUserProfileBloc.state)
-        .thenReturn(() => UserProfileInitial());
+    when(() => mockUserProfileBloc.state).thenReturn(UserProfileInitial());
 
     //act
     await widgetTester
@@ -50,8 +53,7 @@ void main() {
 
   testWidgets('user profile screen loading state', (widgetTester) async {
     //arrange
-    when(() => mockUserProfileBloc.state)
-        .thenReturn(() => UserProfileLoading());
+    when(() => mockUserProfileBloc.state).thenReturn(UserProfileLoading());
 
     //act
     await widgetTester
@@ -62,14 +64,13 @@ void main() {
     expect(loading, findsOneWidget);
   });
 
-  testWidgets('user profile screen loading state', (widgetTester) async {
+  testWidgets('user profile screen loaded state', (widgetTester) async {
     //arrange
-    when(() => mockUserProfileBloc.state)
-        .thenReturn(() => UserProfileLoaded(user));
+    when(() => mockUserProfileBloc.state).thenReturn(UserProfileLoaded(user));
 
     //act
-    await widgetTester
-        .pumpWidget(makeTestableWidget(const UserProfileScreen()));
+    await mockNetworkImagesFor(() async => await widgetTester
+        .pumpWidget(makeTestableWidget(const UserProfileScreen())));
     final loading = find.byType(Text);
     expect(loading, findsOneWidget);
 
@@ -77,5 +78,3 @@ void main() {
     expect(find.text(user.name), findsOneWidget);
   });
 }
-
-//done

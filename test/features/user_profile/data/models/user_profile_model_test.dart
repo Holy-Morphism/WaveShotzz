@@ -30,8 +30,8 @@ void main() {
     test('Should get data from firestore ', () async {
       //arrange
       await database.collection('users').doc(uid).set({
-        'name': user.name,
-        'profilePicture': user.profilePictureUrl,
+        'username': user.name,
+        'profilePictureUrl': user.profilePictureUrl,
       });
       await database
           .collection('users')

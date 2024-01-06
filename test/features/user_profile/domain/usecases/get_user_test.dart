@@ -41,7 +41,7 @@ void main() {
     test('Get user data unsuccessful', () async {
       //arrange
       when(mockUserProfileRepository.getUser()).thenAnswer((_) async* {
-        yield const Left(GetUserFailure(message));
+        yield const Left(RandomFailure(message));
       });
 
       //act
@@ -49,7 +49,7 @@ void main() {
 
       //assert
       await expectLater(
-          result, emitsInOrder([const Left(GetUserFailure(message))]));
+          result, emitsInOrder([const Left(RandomFailure(message))]));
     });
   });
 }

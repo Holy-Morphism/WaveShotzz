@@ -52,7 +52,7 @@ void main() {
     'emits [UserProfileLoading,UserProfileFailed] when UserProfileGetData is added and user is returned',
     build: () {
       when(mockGetUser()).thenAnswer((_) async* {
-        yield left(const GetUserFailure('error'));
+        yield left(const RandomFailure('error'));
       });
       return UserProfileBloc(mockGetUser, mockDeleteUser);
     },
