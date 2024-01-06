@@ -7,9 +7,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_storage_mocks/firebase_storage_mocks.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:waveshotzz/core/error/failure.dart';
-import 'package:waveshotzz/features/authentication/data/repositories/authentication_repository_implementation.dart';
-import 'package:mock_exceptions/mock_exceptions.dart';
-import 'package:waveshotzz/features/user_profile/data/repositories/user_repository_implementation.dart';
+import 'package:waveshotzz/features/user_profile/data/models/user_profile_model.dart';
+import 'package:waveshotzz/features/user_profile/data/repositories/user_profile_repository_implementation.dart.dart';
 
 void main() {
   late MockFirebaseStorage mockFirebaseStorage;
@@ -25,22 +24,20 @@ void main() {
         mockFirebaseAuth, fakeFirebaseFirestore, mockFirebaseStorage);
   });
 
-  const String name = 'username';
   const String email = 'user@gmail.com';
   const String password = 'password123';
 
   mockFirebaseAuth.signInWithEmailAndPassword(email: email, password: password);
 
   const UserProfileModel user = UserProfileModel(
-    username: 'user',
-    email: 'user@gmail.com',
-    profileImage: Uint8List.fromList([1, 2, 3, 4, 5]),
+    name: 'user',
+    profilePictureUrl: 'profilePictureUrl',
     posts: [],
   );
   const String picPath = '/profile-picture';
 
   group('Get User data', () {
-    test('Is signed in successfully', () async {
+    test('Get User data successfully', () async {
       //arrange
       fakeFirebaseFirestore
           .collection('users')

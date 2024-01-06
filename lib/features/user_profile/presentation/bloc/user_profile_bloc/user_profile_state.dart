@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:waveshotzz/features/user_profile/domain/enitities/user_profile_entity.dart';
+import 'package:waveshotzz/features/user_profile/domain/entities/user_profile_entity.dart';
 
 abstract class UserProfileState extends Equatable {}
 

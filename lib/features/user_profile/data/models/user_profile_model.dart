@@ -1,4 +1,4 @@
-import 'package:waveshotzz/features/user_profile/domain/enitities/user_profile_entity.dart';
+import 'package:waveshotzz/features/user_profile/domain/entities/user_profile_entity.dart';
 
 class UserProfileModel extends UserProfileEntity {
   const UserProfileModel(

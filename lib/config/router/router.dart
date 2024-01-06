@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:waveshotzz/config/router/routes.dart';
 import 'package:waveshotzz/features/authentication/presentation/screens/log_in_screen.dart';
 import 'package:waveshotzz/features/authentication/presentation/screens/sign_in_screen.dart';
+import 'package:waveshotzz/features/user_profile/presentation/screens/user_profile_screen.dart';
 
 final router = GoRouter(
   routes: [
@@ -18,7 +19,7 @@ final router = GoRouter(
     GoRoute(
       name: Routes.homeScreen,
       path: Routes.homeScreen,
-      builder: (context, state) => const HomeScreen(),
+      builder: (context, state) => const UserProfileScreen(),
     ),
   ],
 );

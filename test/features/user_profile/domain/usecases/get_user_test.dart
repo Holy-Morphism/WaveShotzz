@@ -18,8 +18,7 @@ void main() {
 
   const user = UserProfileEntity(
     name: 'user',
-    email: 'user@gmail.com',
-    profilePicture: 'photoUrl',
+    profilePictureUrl: 'profilePictureUrl',
     posts: [],
   );
 
@@ -33,7 +32,7 @@ void main() {
       });
 
       //act
-      final result = await getUser();
+      final result = getUser();
 
       //asset
       expect(result, equals(const Right(user)));

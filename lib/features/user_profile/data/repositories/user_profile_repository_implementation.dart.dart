@@ -6,7 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:waveshotzz/core/error/failure.dart';
 import 'package:waveshotzz/features/user_profile/data/models/user_profile_model.dart';
 
-import 'package:waveshotzz/features/user_profile/domain/enitities/user_profile_entity.dart';
+import 'package:waveshotzz/features/user_profile/domain/entities/user_profile_entity.dart';
 import 'package:waveshotzz/legacy/models/post.dart';
 
 import '../../domain/repositories/user_profile_repository.dart';
