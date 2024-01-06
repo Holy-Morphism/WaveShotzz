@@ -1,11 +1,10 @@
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
-import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:waveshotzz/core/shared/user/data/models/comment_model.dart';
 import 'package:waveshotzz/core/shared/user/domain/entities/comment_entity.dart';
 
 void main() {
-  final date = DateTime(2021);
+  final date = DateTime.now();
   final comment = CommentModel(
     uid: '12345',
     name: 'user',
@@ -13,13 +12,10 @@ void main() {
     date: date,
   );
   late FakeFirebaseFirestore database;
-  late MockFirebaseAuth mockFirebaseAuth;
-  late String uid;
+  const String uid = '12345';
 
   setUp(() {
     database = FakeFirebaseFirestore();
-    mockFirebaseAuth = MockFirebaseAuth();
-    uid = mockFirebaseAuth.currentUser!.uid;
   });
 
   group('CommentModel test', () {

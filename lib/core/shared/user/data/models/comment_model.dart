@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:waveshotzz/core/shared/user/domain/entities/comment_entity.dart';
 
 class CommentModel extends CommentEntity {
@@ -12,7 +13,7 @@ class CommentModel extends CommentEntity {
       uid: json['uid'] as String,
       name: json['name'] as String,
       comment: json['comment'] as String,
-      date: json['date'] as DateTime,
+      date: (json['date'] as Timestamp).toDate(),
     );
   }
 
