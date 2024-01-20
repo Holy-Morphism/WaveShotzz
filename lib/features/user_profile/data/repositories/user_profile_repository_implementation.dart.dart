@@ -61,4 +61,9 @@ class UserProfileRepositoryImplementation implements UserProfileRepository {
       yield const Left(RandomFailure('failed to get user data'));
     }
   }
+
+  @override
+  Future<void> signOut() {
+    return _firebaseAuth.signOut();
+  }
 }

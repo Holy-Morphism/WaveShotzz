@@ -14,11 +14,13 @@ void main() {
   late MockGetUser mockGetUser;
   late MockDeleteUser mockDeleteUser;
   late UserProfileBloc userProfileBloc;
+  late MockSignOut mockSignOut;
 
   setUp(() {
     mockGetUser = MockGetUser();
     mockDeleteUser = MockDeleteUser();
-    userProfileBloc = UserProfileBloc(mockGetUser, mockDeleteUser);
+    mockSignOut = MockSignOut();
+    userProfileBloc = UserProfileBloc(mockSignOut, mockGetUser, mockDeleteUser);
   });
 
   const UserProfileEntity user = UserProfileEntity(
@@ -39,7 +41,7 @@ void main() {
       when(mockGetUser()).thenAnswer((_) async* {
         yield const Right(user);
       });
-      return UserProfileBloc(mockGetUser, mockDeleteUser);
+      return UserProfileBloc(mockSignOut, mockGetUser, mockDeleteUser);
     },
     act: (bloc) => bloc.add(GetUserProfileEvent()),
     expect: () => <UserProfileState>[
@@ -54,7 +56,7 @@ void main() {
       when(mockGetUser()).thenAnswer((_) async* {
         yield left(const RandomFailure('error'));
       });
-      return UserProfileBloc(mockGetUser, mockDeleteUser);
+      return UserProfileBloc(mockSignOut, mockGetUser, mockDeleteUser);
     },
     act: (bloc) => bloc.add(GetUserProfileEvent()),
     expect: () =>

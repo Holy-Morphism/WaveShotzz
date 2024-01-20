@@ -31,7 +31,7 @@ class ProfileImageSelector extends StatelessWidget {
             onPressed: chooseImage,
             icon: const Icon(
               Icons.add_a_photo,
-              color: Colors.white,
+              color: Colors.grey,
             ),
           ),
         ),

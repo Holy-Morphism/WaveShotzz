@@ -12,19 +12,14 @@ import 'package:mockito/mockito.dart';
 import '../../helper/test_helper.mocks.dart';
 
 void main() {
-  late MockIsSignedIn mockIsSignedIn;
   late MockLogInUser mockLogInUser;
   late MockSignInUser mockSignInUser;
-  late MockSignOut mockSignOut;
   late AuthenticationBloc authenticationBloc;
 
   setUp(() {
     mockLogInUser = MockLogInUser();
     mockSignInUser = MockSignInUser();
-    mockSignOut = MockSignOut();
-    mockIsSignedIn = MockIsSignedIn();
-    authenticationBloc = AuthenticationBloc(
-        mockIsSignedIn, mockLogInUser, mockSignInUser, mockSignOut);
+    authenticationBloc = AuthenticationBloc(mockLogInUser, mockSignInUser);
   });
 
   const String username = 'adeel';
@@ -37,27 +32,6 @@ void main() {
     test('Initial State', () {
       expect(authenticationBloc.state, AuthenticationInitial());
     });
-
-    blocTest<AuthenticationBloc, AuthenticationState>(
-      'emits [AuthenticationSuccess] when AuthenticationStart is added and user issignedin',
-      build: () {
-        when(mockIsSignedIn()).thenAnswer((_) => true);
-        return authenticationBloc;
-      },
-      act: (bloc) => bloc.add(const AuthenticationStart()),
-      expect: () => <AuthenticationState>[const AuthenticationSuccess()],
-    );
-
-    blocTest<AuthenticationBloc, AuthenticationState>(
-      'emits [AuthenticationUnauthenticated] when AuthenticationStart is added and user is not signed in',
-      build: () {
-        when(mockIsSignedIn()).thenAnswer((_) => false);
-        return authenticationBloc;
-      },
-      act: (bloc) => bloc.add(const AuthenticationStart()),
-      expect: () =>
-          <AuthenticationState>[const AuthenticationUnauthenticated()],
-    );
 
     blocTest<AuthenticationBloc, AuthenticationState>(
       'emits [AuthenticationSuccess] when AuthenticationLogIn is added and user is logged in successfully',
@@ -134,19 +108,6 @@ void main() {
       expect: () => <AuthenticationState>[
         const AuthenticationLoading(),
         const AuthenticationFailed('failed'),
-      ],
-    );
-
-    blocTest<AuthenticationBloc, AuthenticationState>(
-      'emits [AuthenticationUnauthenticated] when AuthenticationSignOut is added and user is Signed out successfully',
-      build: () {
-        when(mockSignOut()).thenAnswer((_) async => const Right(null));
-        return authenticationBloc;
-      },
-      act: (bloc) => bloc.add(const AuthenticationSignOut()),
-      expect: () => <AuthenticationState>[
-        const AuthenticationLoading(),
-        const AuthenticationUnauthenticated(),
       ],
     );
   });

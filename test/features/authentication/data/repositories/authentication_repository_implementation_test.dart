@@ -27,27 +27,6 @@ void main() {
   const String email = 'user@gmail.com';
   const String password = 'password123';
 
-  group('IsSigned In User', () {
-    test('Is signed in successfully', () {
-      //arrange
-      mockFirebaseAuth.signInAnonymously();
-
-      //act
-      final result = authenticationRepositoryImplementation.isSignedIn();
-
-      //assert
-      expect(result, true);
-    });
-
-    test('Is signed in unsuccessfull', () {
-      //act
-      final result = authenticationRepositoryImplementation.isSignedIn();
-
-      //assert
-      expect(result, false);
-    });
-  });
-
   group('Sign In User', () {
     test('Sign in user succcessfull', () async {
       //act
@@ -98,14 +77,6 @@ void main() {
 
       //assert
       expect(result, const Left(LogInFailure('Exception')));
-    });
-  });
-
-  group('sign out', () {
-    test('Sign out successful', () async {
-      //assert
-      expect(authenticationRepositoryImplementation.signOut(),
-          isA<Future<void>>());
     });
   });
 }

@@ -16,6 +16,8 @@ import 'package:waveshotzz/features/user_profile/domain/usecases/delete_user.dar
     as _i8;
 import 'package:waveshotzz/features/user_profile/domain/usecases/get_user.dart'
     as _i7;
+import 'package:waveshotzz/features/user_profile/domain/usecases/sign_out.dart'
+    as _i9;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -75,6 +77,16 @@ class MockUserProfileRepository extends _i1.Mock
           ),
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+
+  @override
+  _i4.Future<void> signOut() => (super.noSuchMethod(
+        Invocation.method(
+          #signOut,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
 }
 
 /// A class which mocks [GetUser].
@@ -120,4 +132,24 @@ class MockDeleteUser extends _i1.Mock implements _i8.DeleteUser {
           ),
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+}
+
+/// A class which mocks [SignOut].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockSignOut extends _i1.Mock implements _i9.SignOut {
+  MockSignOut() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<void> call({dynamic param}) => (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+          {#param: param},
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
 }

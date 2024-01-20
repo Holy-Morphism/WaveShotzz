@@ -11,8 +11,7 @@ abstract class AuthenticationRepository {
       required String password,
       Uint8List? image,
       String? bio});
-  bool isSignedIn();
-  Future<void> signOut();
+
   Future<Either<Failure, void>> logInUser({
     required String email,
     required String password,

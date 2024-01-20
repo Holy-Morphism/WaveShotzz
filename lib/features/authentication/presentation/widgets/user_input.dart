@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class UserInput extends StatelessWidget {
   const UserInput(
@@ -15,30 +16,50 @@ class UserInput extends StatelessWidget {
   final String label;
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: textEditingController,
-      decoration: InputDecoration(
-        labelText: label,
-        hintText: hintText,
-        hintStyle: const TextStyle(color: Colors.white),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(50),
-          borderSide: const BorderSide(
-            width: 3,
-            color: Colors.white,
-          ),
-        ),
-        border: InputBorder.none,
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(50),
-          borderSide: const BorderSide(
-            width: 3,
-            color: Colors.white,
-          ),
-        ),
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 20,
       ),
-      keyboardType: textInputType,
-      obscureText: isPass,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.white.withOpacity(0.8),
+            blurRadius: 4,
+            spreadRadius: 1,
+            blurStyle: BlurStyle.outer,
+            offset: const Offset(2, 2),
+          ),
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            blurRadius: 4,
+            spreadRadius: 1,
+            blurStyle: BlurStyle.inner,
+            offset: const Offset(-2, -2),
+          ),
+          BoxShadow(
+            color: Colors.white.withOpacity(0.8),
+            blurRadius: 4,
+            spreadRadius: 1,
+            blurStyle: BlurStyle.inner,
+            offset: const Offset(2, 2),
+          ),
+        ],
+      ),
+      child: TextField(
+        cursorColor: Colors.grey.shade900,
+        controller: textEditingController,
+        decoration: InputDecoration(
+          floatingLabelBehavior: FloatingLabelBehavior.never,
+          labelText: label,
+          labelStyle: GoogleFonts.nunitoSans(
+            color: Colors.grey.shade900,
+          ),
+          border: InputBorder.none,
+        ),
+        keyboardType: textInputType,
+        obscureText: isPass,
+      ),
     );
   }
 }

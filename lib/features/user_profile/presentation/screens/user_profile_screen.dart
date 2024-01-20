@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/user_profile_bloc/user_profile_bloc.dart';
 import '../bloc/user_profile_bloc/user_profile_state.dart';
+import '../widgets/user_drawer.dart';
 
 class UserProfileScreen extends StatelessWidget {
   const UserProfileScreen({super.key});
@@ -11,6 +12,7 @@ class UserProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(),
+        drawer: const UserDrawer(),
         body: SafeArea(
             child: BlocConsumer<UserProfileBloc, UserProfileState>(
           listener: (context, state) {

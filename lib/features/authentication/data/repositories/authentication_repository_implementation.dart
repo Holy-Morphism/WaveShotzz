@@ -17,13 +17,6 @@ class AuthenticationRepositoryImplementation
   final FirebaseStorage _storage;
   AuthenticationRepositoryImplementation(
       this._auth, this._database, this._storage);
-  @override
-  bool isSignedIn() {
-    if (_auth.currentUser != null) {
-      return true;
-    }
-    return false;
-  }
 
   @override
   Future<Either<Failure, void>> logInUser(
@@ -66,10 +59,5 @@ class AuthenticationRepositoryImplementation
     } catch (e) {
       return Left(SignInFailure(e.toString()));
     }
-  }
-
-  @override
-  Future<void> signOut() async {
-    return _auth.signOut();
   }
 }

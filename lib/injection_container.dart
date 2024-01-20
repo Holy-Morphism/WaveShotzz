@@ -4,10 +4,9 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:waveshotzz/features/authentication/data/repositories/authentication_repository_implementation.dart';
 import 'package:waveshotzz/features/authentication/domain/repositories/authentication_repository.dart';
-import 'package:waveshotzz/features/authentication/domain/usecases/is_signed_in.dart';
 import 'package:waveshotzz/features/authentication/domain/usecases/log_in_user.dart';
 import 'package:waveshotzz/features/authentication/domain/usecases/sign_in_user.dart';
-import 'package:waveshotzz/features/authentication/domain/usecases/sign_out.dart';
+import 'package:waveshotzz/features/user_profile/domain/usecases/sign_out.dart';
 import 'package:waveshotzz/features/authentication/presentation/bloc/authentication_bloc.dart';
 import 'package:waveshotzz/features/user_profile/data/repositories/user_profile_repository_implementation.dart.dart';
 import 'package:waveshotzz/features/user_profile/domain/usecases/delete_user.dart';
@@ -33,17 +32,13 @@ Future<void> initializeDependencies() async {
       AuthenticationRepositoryImplementation(locator(), locator(), locator()));
 
   //Authentication Usecases
-  locator.registerSingleton<IsSignedIn>(IsSignedIn(locator()));
-
   locator.registerSingleton<LogInUser>(LogInUser(locator()));
 
   locator.registerSingleton<SignInUser>(SignInUser(locator()));
 
-  locator.registerSingleton<SignOut>(SignOut(locator()));
-
   //Authentication bloc
   locator.registerSingleton<AuthenticationBloc>(
-      AuthenticationBloc(locator(), locator(), locator(), locator()));
+      AuthenticationBloc(locator(), locator()));
 
   //User Profile Repository
   locator.registerSingleton<UserProfileRepository>(
@@ -54,8 +49,11 @@ Future<void> initializeDependencies() async {
 
   locator.registerSingleton<DeleteUser>(DeleteUser(locator()));
 
+  locator.registerSingleton<SignOut>(SignOut(locator()));
+
   //User Profile bloc
   locator.registerSingleton<UserProfileBloc>(UserProfileBloc(
+    locator(),
     locator(),
     locator(),
   ));

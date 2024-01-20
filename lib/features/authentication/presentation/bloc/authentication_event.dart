@@ -39,11 +39,3 @@ class AuthenticationLogIn extends AuthenticationEvent {
   @override
   List<Object> get props => [password, email];
 }
-
-class AuthenticationStart extends AuthenticationEvent {
-  const AuthenticationStart();
-}
-
-class AuthenticationSignOut extends AuthenticationEvent {
-  const AuthenticationSignOut();
-}

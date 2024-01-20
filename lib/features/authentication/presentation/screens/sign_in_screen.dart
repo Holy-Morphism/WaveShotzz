@@ -8,7 +8,6 @@ import 'package:waveshotzz/config/router/routes.dart';
 import 'package:waveshotzz/features/authentication/presentation/bloc/authentication_bloc.dart';
 import 'package:waveshotzz/features/authentication/presentation/bloc/authentication_event.dart';
 import 'package:waveshotzz/features/authentication/presentation/widgets/authentication_button.dart';
-import 'package:waveshotzz/features/authentication/presentation/widgets/page_switch_button.dart';
 import 'package:waveshotzz/features/authentication/presentation/widgets/profile_image.dart';
 import 'package:waveshotzz/legacy/screens/home_screen.dart';
 
@@ -63,86 +62,69 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        forceMaterialTransparency: true,
-        backgroundColor: Colors.transparent,
-      ),
-      body: SafeArea(
-        child: BlocConsumer<AuthenticationBloc, AuthenticationState>(
-          listener: (context, state) {
-            if (state is AuthenticationFailed) {
-              _message(state.error);
-            }
-            if (state is AuthenticationSuccess) {
-              _message('Welcome');
-              context.go(Routes.userProfileScreen);
-            }
-          },
-          builder: (context, state) {
-            if (state is AuthenticationLoading) {
-              return const Center(child: CircularProgressIndicator());
-            }
+    return BlocConsumer<AuthenticationBloc, AuthenticationState>(
+      listener: (context, state) {
+        if (state is AuthenticationFailed) {
+          _message(state.error);
+        }
+        if (state is AuthenticationSuccess) {
+          _message('Welcome');
+          context.go(Routes.userProfileScreen);
+        }
+      },
+      builder: (context, state) {
+        if (state is AuthenticationLoading) {
+          return const Center(child: CircularProgressIndicator());
+        }
 
-            return SingleChildScrollView(
-              child: Container(
-                margin: const EdgeInsets.all(30),
-                width: double.infinity,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ProfileImageSelector(
-                      image: _image,
-                      chooseImage: chooseImage,
-                    ),
-                    const SizedBox(height: 24),
-                    UserInput(
-                      textEditingController: _username,
-                      textInputType: TextInputType.text,
-                      hintText: 'Enter your username',
-                      label: 'Username',
-                    ),
-                    const SizedBox(height: 24),
-                    UserInput(
-                      textEditingController: _email,
-                      textInputType: TextInputType.emailAddress,
-                      hintText: 'Enter your Email',
-                      label: 'Email',
-                    ),
-                    const SizedBox(height: 24),
-                    UserInput(
-                      textEditingController: _password,
-                      textInputType: TextInputType.text,
-                      hintText: 'Enter your Password',
-                      label: 'Password',
-                      isPass: true,
-                    ),
-                    const SizedBox(height: 24),
-                    UserInput(
-                      textEditingController: _bio,
-                      textInputType: TextInputType.text,
-                      hintText: 'Enter your Bio',
-                      label: 'Bio',
-                    ),
-                    const SizedBox(height: 24),
-                    SizedBox(
-                        width: double.infinity,
-                        child: AuthenticationButton(
-                            title: 'Sign Up', onPressed: _signUp)),
-                    const SizedBox(height: 16),
-                    const PageSwitchButton(
-                      question: 'Already have an account?',
-                      buttonText: 'Login',
-                      switchPath: Routes.logInScreen,
-                    ),
-                    const SizedBox(height: 16),
-                  ],
+        return SingleChildScrollView(
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 30),
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ProfileImageSelector(
+                  image: _image,
+                  chooseImage: chooseImage,
                 ),
-              ),
-            );
-          },
-        ),
-      ),
+                const SizedBox(height: 24),
+                UserInput(
+                  textEditingController: _username,
+                  textInputType: TextInputType.text,
+                  hintText: 'Enter your username',
+                  label: 'Username',
+                ),
+                const SizedBox(height: 24),
+                UserInput(
+                  textEditingController: _email,
+                  textInputType: TextInputType.emailAddress,
+                  hintText: 'Enter your Email',
+                  label: 'Email',
+                ),
+                const SizedBox(height: 24),
+                UserInput(
+                  textEditingController: _password,
+                  textInputType: TextInputType.text,
+                  hintText: 'Enter your Password',
+                  label: 'Password',
+                  isPass: true,
+                ),
+                const SizedBox(height: 24),
+                UserInput(
+                  textEditingController: _bio,
+                  textInputType: TextInputType.text,
+                  hintText: 'Enter your Bio',
+                  label: 'Bio',
+                ),
+                const SizedBox(height: 24),
+                AuthenticationButton(title: 'Sign Up', onPressed: _signUp),
+                const SizedBox(height: 70),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

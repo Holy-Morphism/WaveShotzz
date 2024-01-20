@@ -11,14 +11,10 @@ import 'package:mockito/mockito.dart' as _i1;
 import 'package:waveshotzz/core/error/failure.dart' as _i5;
 import 'package:waveshotzz/features/authentication/domain/repositories/authentication_repository.dart'
     as _i3;
-import 'package:waveshotzz/features/authentication/domain/usecases/is_signed_in.dart'
-    as _i7;
 import 'package:waveshotzz/features/authentication/domain/usecases/log_in_user.dart'
-    as _i8;
+    as _i7;
 import 'package:waveshotzz/features/authentication/domain/usecases/sign_in_user.dart'
-    as _i9;
-import 'package:waveshotzz/features/authentication/domain/usecases/sign_out.dart'
-    as _i10;
+    as _i8;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -90,25 +86,6 @@ class MockAuthenticationRepository extends _i1.Mock
       ) as _i4.Future<_i2.Either<_i5.Failure, String>>);
 
   @override
-  bool isSignedIn() => (super.noSuchMethod(
-        Invocation.method(
-          #isSignedIn,
-          [],
-        ),
-        returnValue: false,
-      ) as bool);
-
-  @override
-  _i4.Future<void> signOut() => (super.noSuchMethod(
-        Invocation.method(
-          #signOut,
-          [],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
-
-  @override
   _i4.Future<_i2.Either<_i5.Failure, void>> logInUser({
     required String? email,
     required String? password,
@@ -137,28 +114,10 @@ class MockAuthenticationRepository extends _i1.Mock
       ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
 }
 
-/// A class which mocks [IsSignedIn].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockIsSignedIn extends _i1.Mock implements _i7.IsSignedIn {
-  MockIsSignedIn() {
-    _i1.throwOnMissingStub(this);
-  }
-
-  @override
-  bool call() => (super.noSuchMethod(
-        Invocation.method(
-          #call,
-          [],
-        ),
-        returnValue: false,
-      ) as bool);
-}
-
 /// A class which mocks [LogInUser].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockLogInUser extends _i1.Mock implements _i8.LogInUser {
+class MockLogInUser extends _i1.Mock implements _i7.LogInUser {
   MockLogInUser() {
     _i1.throwOnMissingStub(this);
   }
@@ -195,7 +154,7 @@ class MockLogInUser extends _i1.Mock implements _i8.LogInUser {
 /// A class which mocks [SignInUser].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSignInUser extends _i1.Mock implements _i9.SignInUser {
+class MockSignInUser extends _i1.Mock implements _i8.SignInUser {
   MockSignInUser() {
     _i1.throwOnMissingStub(this);
   }
@@ -236,24 +195,4 @@ class MockSignInUser extends _i1.Mock implements _i9.SignInUser {
           ),
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, String>>);
-}
-
-/// A class which mocks [SignOut].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockSignOut extends _i1.Mock implements _i10.SignOut {
-  MockSignOut() {
-    _i1.throwOnMissingStub(this);
-  }
-
-  @override
-  _i4.Future<void> call({dynamic param}) => (super.noSuchMethod(
-        Invocation.method(
-          #call,
-          [],
-          {#param: param},
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
 }
