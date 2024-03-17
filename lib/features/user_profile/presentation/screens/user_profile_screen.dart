@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:waveshotzz/features/user_profile/presentation/widgets/user_posts.dart';
 
 import '../bloc/user_profile_bloc/user_profile_bloc.dart';
 import '../bloc/user_profile_bloc/user_profile_state.dart';
@@ -11,7 +12,11 @@ class UserProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        appBar: AppBar(
+          title: Text('Profile', style: Theme.of(context).textTheme.titleLarge),
+          backgroundColor: Theme.of(context).colorScheme.secondary,
+        ),
         drawer: const UserDrawer(),
         body: SafeArea(
             child: BlocConsumer<UserProfileBloc, UserProfileState>(
@@ -37,8 +42,11 @@ class UserProfileScreen extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
                       margin: const EdgeInsets.all(10),
-                      color: Colors.black,
                       child: Row(
                         children: [
                           //User Image
@@ -56,8 +64,23 @@ class UserProfileScreen extends StatelessWidget {
                             child: Container(
                               margin: const EdgeInsets.all(10),
                               child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(state.user.name),
+                                  Text(
+                                    state.user.name,
+                                    style:
+                                        Theme.of(context).textTheme.titleLarge,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      userData(state.user.posts.length, "Posts",
+                                          context),
+                                    ],
+                                  )
                                 ],
                               ),
                             ),
@@ -72,26 +95,7 @@ class UserProfileScreen extends StatelessWidget {
                     child: Container(
                       margin: const EdgeInsets.all(10),
                       child: state.user.posts.isNotEmpty
-                          ? GridView.builder(
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                                crossAxisSpacing: 2,
-                                mainAxisSpacing: 2,
-                              ),
-                              itemBuilder: (context, index) {
-                                return Container(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: NetworkImage(
-                                        state.user.posts[index].url,
-                                      ),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                );
-                              },
-                            )
+                          ? UserPosts(state.user.posts)
                           : null,
                     ),
                   ),
@@ -102,4 +106,19 @@ class UserProfileScreen extends StatelessWidget {
           },
         )));
   }
+}
+
+Widget userData(int count, String name, BuildContext context) {
+  return Column(
+    children: [
+      Text(
+        count.toString(),
+        style: Theme.of(context).textTheme.titleSmall,
+      ),
+      Text(
+        name,
+        style: Theme.of(context).textTheme.bodySmall,
+      ),
+    ],
+  );
 }
