@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:waveshotzz/config/router/router.dart';
 import 'package:waveshotzz/config/theme/theme.dart';
 
-import 'features/home/presentation/screens/home_screen.dart';
 import 'firebase_options.dart';
 import 'injection_container.dart';
 
