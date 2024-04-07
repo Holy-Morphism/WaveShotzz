@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# Contributing to KYLIPP
+# Contributing to WAVESHOTZZ
 
 First off, thanks for taking the time to contribute! ❤️
 
