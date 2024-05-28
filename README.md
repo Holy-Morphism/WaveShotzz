@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Waveshotzz</h1>
+  <h1  style="font-size: 5rem;">Waveshotzz</h1>
   <h2>A Social Media App</h2>
 </div>
 
