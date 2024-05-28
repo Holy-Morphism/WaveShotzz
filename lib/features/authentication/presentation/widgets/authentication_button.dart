@@ -3,9 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AuthenticationButton extends StatefulWidget {
   final VoidCallback onPressed;
+  final bool disabled;
   final String title;
   const AuthenticationButton(
-      {super.key, required this.title, required this.onPressed});
+      {super.key, required this.title, required this.onPressed, this.disabled = false});
 
   @override
   State<AuthenticationButton> createState() => _AuthenticationButtonState();
@@ -34,7 +35,7 @@ class _AuthenticationButtonState extends State<AuthenticationButton> {
         duration: const Duration(milliseconds: 100),
         width: double.infinity,
         height: 60,
-        decoration: !isPressed
+        decoration: !isPressed && !widget.disabled
             ? BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30),

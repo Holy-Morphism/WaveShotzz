@@ -4,9 +4,9 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:waveshotzz/core/error/failure.dart';
-import 'package:waveshotzz/features/authentication/presentation/bloc/authentication_bloc.dart';
-import 'package:waveshotzz/features/authentication/presentation/bloc/authentication_event.dart';
-import 'package:waveshotzz/features/authentication/presentation/bloc/authentication_state.dart';
+import 'package:waveshotzz/features/authentication/presentation/blocs/authentication_bloc.dart';
+import 'package:waveshotzz/features/authentication/presentation/blocs/authentication_event.dart';
+import 'package:waveshotzz/features/authentication/presentation/blocs/authentication_state.dart';
 import 'package:mockito/mockito.dart';
 
 import '../../helper/test_helper.mocks.dart';

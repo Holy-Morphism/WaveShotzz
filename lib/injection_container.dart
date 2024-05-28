@@ -6,8 +6,9 @@ import 'package:waveshotzz/features/authentication/data/repositories/authenticat
 import 'package:waveshotzz/features/authentication/domain/repositories/authentication_repository.dart';
 import 'package:waveshotzz/features/authentication/domain/usecases/log_in_user.dart';
 import 'package:waveshotzz/features/authentication/domain/usecases/sign_in_user.dart';
+import 'package:waveshotzz/features/authentication/presentation/blocs/log_in_bloc/log_in_bloc.dart';
+import 'package:waveshotzz/features/authentication/presentation/blocs/sign_in_bloc/sign_in_bloc.dart';
 import 'package:waveshotzz/features/user_profile/domain/usecases/sign_out.dart';
-import 'package:waveshotzz/features/authentication/presentation/bloc/authentication_bloc.dart';
 import 'package:waveshotzz/features/user_profile/data/repositories/user_profile_repository_implementation.dart.dart';
 import 'package:waveshotzz/features/user_profile/domain/usecases/delete_user.dart';
 
@@ -37,8 +38,9 @@ Future<void> initializeDependencies() async {
   locator.registerSingleton<SignInUser>(SignInUser(locator()));
 
   //Authentication bloc
-  locator.registerSingleton<AuthenticationBloc>(
-      AuthenticationBloc(locator(), locator()));
+  locator.registerSingleton<SignInBloc>(SignInBloc(locator()));
+
+  locator.registerSingleton<LogInBloc>(LogInBloc(locator()));
 
   //User Profile Repository
   locator.registerSingleton<UserProfileRepository>(

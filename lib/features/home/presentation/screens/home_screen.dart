@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../user_profile/presentation/screens/user_profile_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -14,18 +16,28 @@ class _HomeScreenState extends State<HomeScreen> {
   );
   int currentIndex = 0;
 
+  AppBar? _appBar;
+  Widget? _drawer;
+  void changeAppBar(AppBar appBar, Widget drawer) {
+    _appBar = appBar;
+    _drawer = drawer;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.secondary,
-        ),
+        appBar: currentIndex == 3
+            ? _appBar
+            : AppBar(
+                backgroundColor: Theme.of(context).colorScheme.secondary,
+              ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
-          child: const Icon(Icons.add),
           backgroundColor: Theme.of(context).colorScheme.secondary,
+          child: const Icon(Icons.add),
         ),
+        drawer: currentIndex != 3 ? null : _drawer,
         bottomNavigationBar: BottomNavigationBar(
             fixedColor: Theme.of(context).colorScheme.onSecondary,
             backgroundColor: Theme.of(context).colorScheme.secondary,
@@ -73,17 +85,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Theme.of(context).colorScheme.primary,
                 child: Center(
                   child: Text(
-                    'First Page',
+                    '1st Page',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
               ),
+
               //Second Page
               Container(
                 color: Theme.of(context).colorScheme.primary,
                 child: Center(
                   child: Text(
-                    'Second Page',
+                    '2nd Page',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
@@ -93,20 +106,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Theme.of(context).colorScheme.primary,
                 child: Center(
                   child: Text(
-                    'Third Page',
+                    '3rd Page',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
               ),
-              Container(
-                color: Theme.of(context).colorScheme.primary,
-                child: Center(
-                  child: Text(
-                    'Forth Page',
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                ),
-              ),
+              UserProfileScreen(changeAppBar: changeAppBar),
             ],
           ),
         ));

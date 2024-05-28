@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class PageSwitchButton extends StatelessWidget {
   final String question, buttonText;
-  final switchPage;
+  final Function(int) switchPage;
   final int index;
   const PageSwitchButton({
     super.key,
@@ -23,7 +23,7 @@ class PageSwitchButton extends StatelessWidget {
           style: GoogleFonts.poppins(
             fontSize: 14,
             fontWeight: FontWeight.w500,
-            color: Colors.grey[600],
+            color: Theme.of(context).colorScheme.onPrimary,
           ),
         ),
         TextButton(
@@ -32,7 +32,7 @@ class PageSwitchButton extends StatelessWidget {
                 style: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
-                  color: Colors.blue,
+                  color: Theme.of(context).colorScheme.onSecondary,
                 )))
       ],
     );

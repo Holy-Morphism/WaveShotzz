@@ -66,4 +66,10 @@ class UserProfileRepositoryImplementation implements UserProfileRepository {
   Future<void> signOut() {
     return _firebaseAuth.signOut();
   }
+
+  // @override
+  // Stream<Either<Failure, List<PostEntity>>> getPosts() {
+  //   // TODO: implement getPosts
+  //   throw UnimplementedError();
+  // }
 }

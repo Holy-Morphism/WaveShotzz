@@ -7,16 +7,23 @@ import '../bloc/user_profile_bloc/user_profile_state.dart';
 import '../widgets/user_drawer.dart';
 
 class UserProfileScreen extends StatelessWidget {
-  const UserProfileScreen({super.key});
+  final Function changeAppBar;
+  const UserProfileScreen({super.key, required this.changeAppBar});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        appBar: AppBar(
+    changeAppBar(
+        AppBar(
           title: Text('Profile', style: Theme.of(context).textTheme.titleLarge),
           backgroundColor: Theme.of(context).colorScheme.secondary,
         ),
+        const UserDrawer());
+    return Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        // appBar: AppBar(
+        //   title: Text('Profile', style: Theme.of(context).textTheme.titleLarge),
+        //   backgroundColor: Theme.of(context).colorScheme.secondary,
+        // ),
         drawer: const UserDrawer(),
         body: SafeArea(
             child: BlocConsumer<UserProfileBloc, UserProfileState>(
@@ -66,7 +73,7 @@ class UserProfileScreen extends StatelessWidget {
                               child: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
                                     state.user.name,
@@ -79,6 +86,10 @@ class UserProfileScreen extends StatelessWidget {
                                     children: [
                                       userData(state.user.posts.length, "Posts",
                                           context),
+                                      userData(state.user.followers,
+                                          'Followers', context),
+                                      userData(state.user.following,
+                                          'Following', context)
                                     ],
                                   )
                                 ],
