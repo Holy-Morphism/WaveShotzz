@@ -18,8 +18,8 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
     'Don\'t have an account?',
   ];
   static const List<String> buttonText = [
-    'Login',
-    'sign Up',
+    'Log In',
+    'Sign Up',
   ];
   void switchPage(int page) {
     setState(() {

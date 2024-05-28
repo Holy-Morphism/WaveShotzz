@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:waveshotzz/config/router/routes.dart';
 
@@ -87,7 +88,6 @@ class _SignInPageState extends State<SignInPage> {
         }
         return SingleChildScrollView(
           child: Container(
-       
             margin: const EdgeInsets.symmetric(horizontal: 30),
             width: double.infinity,
             child: Form(
@@ -101,10 +101,19 @@ class _SignInPageState extends State<SignInPage> {
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ProfileImageSelector(
-                    image: _image,
-                    chooseImage: chooseImage,
+                  Text('Sign Up',
+                      style: GoogleFonts.poppins(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w600,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      )),
+                  Center(
+                    child: ProfileImageSelector(
+                      image: _image,
+                      chooseImage: chooseImage,
+                    ),
                   ),
                   SizedBox(
                     height: 24,

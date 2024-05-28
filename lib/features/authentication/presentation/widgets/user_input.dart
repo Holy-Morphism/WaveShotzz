@@ -25,28 +25,17 @@ class UserInput extends StatelessWidget {
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(30),
-        border: Border.all(
-          color: Colors.black,
-          width: 1,
-        ),
         boxShadow: [
-          BoxShadow(
-            color: Colors.white.withOpacity(0.8),
-            blurRadius: 4,
-            spreadRadius: 1,
-            blurStyle: BlurStyle.outer,
-            offset: const Offset(-2, -2),
-          ),
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            blurRadius: 4,
-            spreadRadius: 1,
-            blurStyle: BlurStyle.inner,
-            offset: const Offset(2, 2),
-          ),
           BoxShadow(
             color: Colors.black.withOpacity(0.8),
             blurRadius: 4,
+            spreadRadius: 1,
+            blurStyle: BlurStyle.inner,
+            offset: const Offset(-2, -2),
+          ),
+          BoxShadow(
+            color: Colors.white.withOpacity(0.5),
+            blurRadius: 5,
             spreadRadius: 1,
             blurStyle: BlurStyle.inner,
             offset: const Offset(2, 2),
@@ -54,6 +43,9 @@ class UserInput extends StatelessWidget {
         ],
       ),
       child: TextFormField(
+        style: GoogleFonts.nunitoSans(
+          color: Theme.of(context).colorScheme.onPrimary,
+        ),
         cursorColor: Colors.grey.shade900,
         controller: textEditingController,
         decoration: InputDecoration(

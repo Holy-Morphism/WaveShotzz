@@ -1,10 +1,16 @@
-# Waveshotzz - Social Networking App
+<div align="center">
+  <h1>Waveshotzz</h1>
+  <h2>A Social Media App</h2>
+</div>
 
 Waveshotzz is a social networking app inspired by Instagram, showcasing clean architecture and Bloc pattern implementation.
 
 ## Features
 
 - **Authentication**: Sign in, sign up, and sign out functionality.
+
+![Log In](images/log_in.png) ![Sign In](images/sign_in.png)
+
 - **User Profile**: View and interact with user profiles.
 - **Social Interactions**: Follow, unfollow, like, and upload posts.
 - **Graph Visualization**: Explore user networks in a graph.

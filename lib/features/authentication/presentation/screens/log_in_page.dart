@@ -67,8 +67,15 @@ class _LogInPageState extends State<LogInPage> {
                   email: _email.text, password: _password.text));
             },
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                Text('Log In',
+                    style: GoogleFonts.poppins(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w600,
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    )),
                 Flexible(
                   flex: 2,
                   child: Container(

@@ -6,7 +6,10 @@ class AuthenticationButton extends StatefulWidget {
   final bool disabled;
   final String title;
   const AuthenticationButton(
-      {super.key, required this.title, required this.onPressed, this.disabled = false});
+      {super.key,
+      required this.title,
+      required this.onPressed,
+      this.disabled = false});
 
   @override
   State<AuthenticationButton> createState() => _AuthenticationButtonState();
@@ -37,31 +40,26 @@ class _AuthenticationButtonState extends State<AuthenticationButton> {
         height: 60,
         decoration: !isPressed && !widget.disabled
             ? BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.primary,
                 borderRadius: BorderRadius.circular(30),
                 boxShadow: [
-                  const BoxShadow(
-                    color: Colors.white,
+                  BoxShadow(
+                    color: Colors.white.withOpacity(0.5),
                     blurRadius: 4,
                     spreadRadius: 1,
-                    offset: Offset(-2, -2),
+                    offset: const Offset(-2, -2),
                   ),
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
+                    color: Colors.black.withOpacity(0.9),
                     blurRadius: 4,
                     spreadRadius: 1,
-                    offset: const Offset(2, 2),
-                  ),
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    blurRadius: 4,
-                    spreadRadius: 1,
-                    offset: const Offset(5, 5),
+                    blurStyle: BlurStyle.inner,
+                    offset: const Offset(2, 3),
                   ),
                 ],
               )
-            : const BoxDecoration(
-                color: Colors.white,
+            : BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
               ),
         child: Center(
           child: Text(
