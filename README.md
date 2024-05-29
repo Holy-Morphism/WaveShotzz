@@ -12,6 +12,7 @@ Waveshotzz is a social networking app inspired by Instagram, showcasing clean ar
 <p float="left">
   <img src="images/log_in.png" width="200" />
   <img src="images/sign_in.png" width="200" /> 
+  <img src="images/auth.gif" width="200" /> 
 </p>
 
 - **User Profile**: View and interact with user profiles.
