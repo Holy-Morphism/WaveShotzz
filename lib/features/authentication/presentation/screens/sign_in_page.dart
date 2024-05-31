@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:image_picker/image_picker.dart';
+
 import 'package:waveshotzz/config/router/routes.dart';
+import 'package:waveshotzz/injection_container.dart';
+import 'package:waveshotzz/utils/image_helper.dart';
 
 import '../../../../utils/utils.dart';
 import '../blocs/sign_in_bloc/sign_in_bloc.dart';
@@ -64,10 +66,12 @@ class _SignInPageState extends State<SignInPage> {
           bio: _bio.text));
 
   void chooseImage() async {
-    final image = await pickImage(ImageSource.gallery);
-    setState(() {
-      _image = image;
-    });
+    final image = await locator<ImageHelper>().pickProfileImage();
+    if (image != null) {
+      setState(() {
+        _image = image;
+      });
+    }
   }
 
   @override

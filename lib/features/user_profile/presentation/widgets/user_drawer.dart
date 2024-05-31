@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:waveshotzz/config/router/routes.dart';
 
 import '../bloc/user_profile_bloc/user_profile_bloc.dart';
 import '../bloc/user_profile_bloc/user_profile_event.dart';
@@ -31,7 +33,9 @@ class UserDrawer extends StatelessWidget {
               style: GoogleFonts.nunitoSans(),
             ),
             onTap: () {
+              Navigator.of(context).pop();
               BlocProvider.of<UserProfileBloc>(context).add(SignOutEvent());
+              context.go(Routes.authPage);
             },
           ),
         ],

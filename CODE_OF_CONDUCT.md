@@ -1,4 +1,4 @@
-# Code of Conduct - KYLIPP
+# Code of Conduct - WAVESHOTZZ
 
 ## Our Pledge
 

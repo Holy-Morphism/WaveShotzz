@@ -11,7 +11,7 @@ import 'package:waveshotzz/features/user_profile/presentation/bloc/user_profile_
 import 'package:waveshotzz/injection_container.dart';
 
 final router = GoRouter(
-  initialLocation: Routes.logInScreen,
+  initialLocation: Routes.authPage,
   routes: [
     GoRoute(
       path: Routes.authPage,

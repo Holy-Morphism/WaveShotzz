@@ -45,7 +45,12 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
   final SignInUser signInUser;
   SignInBloc(this.signInUser) : super(SignInInitial()) {
     on<OnChangeSignInEvent>((event, emit) {
-      if (event.username.length < 3) {
+      if (event.username.isEmpty ||
+          event.email.isEmpty ||
+          event.password.isEmpty ||
+          event.confirmPassword.isEmpty) {
+        emit(InValidSignInState(validationError: 'All fields are required'));
+      } else if (event.username.length < 3) {
         emit(InValidSignInState(
             validationError: 'Username must be aleast 3 characters'));
       } else if (!EmailValidator.validate(event.email)) {

@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:waveshotzz/config/router/router.dart';
-import 'package:waveshotzz/config/router/routes.dart';
+
 import 'package:waveshotzz/features/user_profile/domain/usecases/sign_out.dart';
 
 import '../../../domain/usecases/delete_user.dart';
@@ -28,10 +27,8 @@ class UserProfileBloc extends Bloc<UserProfileEvent, UserProfileState> {
     });
 
     on<SignOutEvent>((event, emit) {
-      signOut().then((_) {
-        emit(UserProfileInitial());
-        router.go(Routes.logInScreen);
-      });
+      emit(UserProfileLoading());
+      signOut();
     });
   }
 }

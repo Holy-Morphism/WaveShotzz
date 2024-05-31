@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:waveshotzz/core/constants/constants.dart';
 import 'package:waveshotzz/features/user_profile/presentation/widgets/user_posts.dart';
 
 import '../bloc/user_profile_bloc/user_profile_bloc.dart';
@@ -61,8 +62,10 @@ class UserProfileScreen extends StatelessWidget {
                             flex: 1,
                             child: CircleAvatar(
                               radius: 50,
-                              backgroundImage:
-                                  NetworkImage(state.user.profilePictureUrl),
+                              backgroundImage: state
+                                      .user.profilePictureUrl.isEmpty
+                                  ? const AssetImage(loadingImage)
+                                  : NetworkImage(state.user.profilePictureUrl),
                             ),
                           ),
                           //User name,followers,following,posts

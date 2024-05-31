@@ -62,6 +62,7 @@ dependencies:
   network_image_mock: ^2.1.1
   supabase_flutter: ^2.5.3
   email_validator: ^2.1.17
+  image_cropper: ^6.0.0
 
 dev_dependencies:
   flutter_test:

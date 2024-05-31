@@ -79,13 +79,13 @@ class _LogInPageState extends State<LogInPage> {
                 Flexible(
                   flex: 2,
                   child: Container(
+                      padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 20),
                       child: state is InValidLogInState
                           ? Text(
                               state.validationError,
-                              style: GoogleFonts.roboto(
-                                color: Colors.red,
-                                fontSize: 16,
-                              ),
+                              style: const TextStyle(color: Colors.red),
                             )
                           : null),
                 ),

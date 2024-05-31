@@ -10,19 +10,19 @@ final ThemeData theme = ThemeData(
     secondary: const Color.fromRGBO(99, 104, 110, 1),
     onSecondary: const Color.fromRGBO(182, 247, 193, 1),
   ),
-  textTheme:  TextTheme(
+  textTheme: TextTheme(
     titleLarge: GoogleFonts.poppins(
-      fontSize: 50,
+      fontSize: 24,
       fontWeight: FontWeight.w700,
       color: const Color.fromRGBO(182, 247, 193, 1),
     ),
     titleMedium: GoogleFonts.poppins(
-      fontSize: 40,
+      fontSize: 20,
       fontWeight: FontWeight.w700,
       color: const Color.fromRGBO(182, 247, 193, 1),
     ),
     titleSmall: GoogleFonts.poppins(
-      fontSize: 30,
+      fontSize: 16,
       fontWeight: FontWeight.w700,
       color: const Color.fromRGBO(182, 247, 193, 1),
     ),

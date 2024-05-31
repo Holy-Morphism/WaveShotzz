@@ -32,7 +32,7 @@ class _AuthenticationButtonState extends State<AuthenticationButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: !widget.disabled ? onTap : null,
       child: AnimatedContainer(
         curve: Curves.easeIn,
         duration: const Duration(milliseconds: 100),
