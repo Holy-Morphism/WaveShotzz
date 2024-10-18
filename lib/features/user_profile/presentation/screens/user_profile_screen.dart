@@ -1,19 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:waveshotzz/core/constants/constants.dart';
+import 'package:waveshotzz/features/user_profile/presentation/bloc/user_profile_bloc/user_profile_event.dart';
 import 'package:waveshotzz/features/user_profile/presentation/widgets/user_posts.dart';
 
 import '../bloc/user_profile_bloc/user_profile_bloc.dart';
 import '../bloc/user_profile_bloc/user_profile_state.dart';
 import '../widgets/user_drawer.dart';
 
-class UserProfileScreen extends StatelessWidget {
+class UserProfileScreen extends StatefulWidget {
   final Function changeAppBar;
   const UserProfileScreen({super.key, required this.changeAppBar});
 
   @override
+  State<UserProfileScreen> createState() => _UserProfileScreenState();
+}
+
+class _UserProfileScreenState extends State<UserProfileScreen> {
+  @override
+  void initState() {
+    BlocProvider.of<UserProfileBloc>(context).add(GetUserProfileEvent());
+    super.initState();
+  }
+
+  
+  @override
   Widget build(BuildContext context) {
-    changeAppBar(
+    widget.changeAppBar(
         AppBar(
           title: Text('Profile', style: Theme.of(context).textTheme.titleLarge),
           backgroundColor: Theme.of(context).colorScheme.secondary,

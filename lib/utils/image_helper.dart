@@ -31,7 +31,7 @@ class ImageHelper {
   }) async {
     return await _imageCropper.cropImage(
         sourcePath: file.path,
-        cropStyle: cropStyle,
+        //cropStyle: cropStyle,
         compressQuality: 100,
         uiSettings: [IOSUiSettings(), AndroidUiSettings()]);
   }
